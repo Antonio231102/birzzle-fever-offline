@@ -1,0 +1,44 @@
+name: Validate source repository
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install analysis dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Enforce tracked-file policy
+        run: python scripts/validate_repository.py
+
+      - name: Compile tracked Python sources
+        shell: python
+        run: |
+          import pathlib
+          import py_compile
+          import subprocess
+          import tempfile
+
+          root = pathlib.Path.cwd()
+          tracked = subprocess.check_output(["git", "ls-files", "*.py"], text=True).splitlines()
+          with tempfile.TemporaryDirectory() as output:
+              for relative in tracked:
+                  target = pathlib.Path(output) / (relative.replace("/", "_") + "c")
+                  py_compile.compile(str(root / relative), cfile=str(target), doraise=True)
+          print(f"compiled {len(tracked)} Python files")
+
+      - name: Run offline index diagnostics tests
+        run: python -m unittest -v test_index_diagnostics.py

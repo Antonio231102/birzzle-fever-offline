@@ -1,0 +1,43 @@
+import hashlib
+from pathlib import Path
+
+
+SOURCE = Path("native-patches/v4-ranking-inflight/libbirzzle.so")
+OUTPUT = Path("native-patches/v6-safe-heart-setter/libbirzzle.so")
+EXPECTED_SHA256 = "7d079a460b738e4de3d73829a811a0234474d2f55b8072981ba6c7f97fefabf0"
+
+# CCashManager::SetCurrentHeartCount(CSafeNumber): replace the setter with:
+#
+#     movs r1, #5
+#     b.w  CSafeNumber::SetNumber(int)
+#
+# This writes a correctly encoded CSafeNumber directly into the cash manager
+# and returns through SetNumber's bx lr. It prevents every life-consumption
+# attempt without changing CSafeNumber globally or touching coins/gems.
+PATCHES = (
+    (0x171BFC, "f8b55f465646", "052119f79dbc"),
+)
+
+
+data = bytearray(SOURCE.read_bytes())
+actual_hash = hashlib.sha256(data).hexdigest()
+if actual_hash != EXPECTED_SHA256:
+    raise SystemExit(f"unexpected source SHA-256: {actual_hash}")
+
+for offset, expected_hex, replacement_hex in PATCHES:
+    expected = bytes.fromhex(expected_hex)
+    replacement = bytes.fromhex(replacement_hex)
+    if len(expected) != len(replacement):
+        raise SystemExit(f"length mismatch at {offset:#x}")
+    actual = bytes(data[offset : offset + len(expected)])
+    if actual != expected:
+        raise SystemExit(
+            f"unexpected bytes at {offset:#x}: {actual.hex()} != {expected.hex()}"
+        )
+    data[offset : offset + len(expected)] = replacement
+    print(f"{offset:#x}: {expected.hex()} -> {replacement.hex()}")
+
+OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+OUTPUT.write_bytes(data)
+print(f"source_sha256={actual_hash}")
+print(f"output_sha256={hashlib.sha256(data).hexdigest()}")

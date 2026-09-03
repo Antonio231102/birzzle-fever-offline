@@ -1,0 +1,19 @@
+* text=auto
+
+*.py text eol=lf
+*.sh text eol=lf
+*.S text eol=lf
+*.java text eol=lf
+*.xml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# These should be excluded by .gitignore; marking them binary prevents damage if
+# an approved release process later stores checksums or fixtures separately.
+*.apk binary
+*.so binary
+*.bin binary
+*.zip binary
+*.gz binary

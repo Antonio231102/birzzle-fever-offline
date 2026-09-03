@@ -1,0 +1,111 @@
+# This is a source-and-research repository. Original or modified game payloads
+# remain local and must never be committed.
+
+# Android packages, signatures, native binaries, and compiled payloads
+*.apk
+*.apk.gz
+*.apks
+*.aab
+*.idsig
+*.so
+*.dex
+*.arsc
+*.bin
+*.elf
+*.o
+*.obj
+*.a
+*.class
+*.jar
+*.war
+
+# Archives and save/backup bundles
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.zip
+*.7z
+*.rar
+*.properties
+
+# Device captures and media
+*.log
+*.logcat
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.mp4
+*.webm
+
+# Secrets and signing material
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+.env
+.env.*
+
+# Generated Python and editor state
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Downloaded toolchains and local analysis dependencies
+.analysis-tools/
+tools/
+platform-tools-latest-windows/
+
+# Extracted/decompiled proprietary game contents and generated build trees
+analysis_extract/
+native-patches/**/apktool/
+native-patches/**/apk-build/
+native-patches/**/decoded/
+native-patches/**/verification-decode/
+native-patches/**/build/
+native-patches/**/build-*/
+xposed-birzzle-id-spoof/build/
+xposed-birzzle-id-spoof/build-*/
+
+# Raw save data, device snapshots, recovery bundles, and cleanup archives
+analysis-backup-compare/
+device-cleanup-backups/
+device-snapshots/
+minimal-public-save/
+recovery-backups/
+save-analysis/
+v25-soak-checkpoints/
+
+# Historical checkpoint directories retain only their Markdown and source files.
+checkpoints/**
+!checkpoints/**/
+!checkpoints/**/*.md
+!checkpoints/**/*.py
+
+# Native milestone directories retain authored sources, notes, aggregate results,
+# and the final release manifest; all generated or captured content stays local.
+native-patches/**
+!native-patches/**/
+!native-patches/**/*.md
+!native-patches/**/*.py
+!native-patches/**/*.S
+!native-patches/v25-ranking-template/release-evidence.json
+!native-patches/v23-request-first-index/embedded-seed-audit.json
+!native-patches/v24-connectivity-independent/apktool/smali/com/halfbrick/birzzlefever/SaveBootstrap.smali
+
+# Original 2016 Titanium Backup bundle at the workspace root
+/com.halfbrick.birzzlefever-*

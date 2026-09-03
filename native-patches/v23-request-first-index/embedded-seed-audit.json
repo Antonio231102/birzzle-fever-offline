@@ -1,0 +1,30 @@
+{
+  "apk": "native-patches\\v23-request-first-index\\BirzzleFever-1.1.2-v23-request-first-index.apk",
+  "embedded_seed_sha256": "3199dd10257d553c22b7b83e9ca1d7075210b8a1a5f57221206726d87f120176",
+  "embedded_file_count": 45,
+  "minimal_bundle_sha256": "109925b9c3fc41498e6ed337270be2e1f65ed78270402c0217aeec50313efbaa",
+  "minimal_files_without_marker": 26,
+  "embedded_only_count": 19,
+  "embedded_only": [
+    "databases/e30b431a9b2d47948fed9f6a5602fa91",
+    "databases/e30b431a9b2d47948fed9f6a5602fa91-journal",
+    "databases/webview.db",
+    "databases/webview.db-journal",
+    "files/clearbox",
+    "files/f0328e1664de484d932bca2ec0e59295",
+    "files/highscore",
+    "files/kontagentCheck_v2_2.dat",
+    "files/order",
+    "files/profile",
+    "files/test",
+    "shared_prefs/Kontagent.xml",
+    "shared_prefs/OL_Prefs_Keys.xml",
+    "shared_prefs/com.google.android.gcm.xml",
+    "shared_prefs/e30b431a9b2d47948fed9f6a5602fa91.13.xml",
+    "shared_prefs/mat_id.xml",
+    "shared_prefs/mat_log_id_last_open.xml",
+    "shared_prefs/mat_log_id_open.xml",
+    "shared_prefs/mat_queue.xml"
+  ],
+  "minimal_only": []
+}

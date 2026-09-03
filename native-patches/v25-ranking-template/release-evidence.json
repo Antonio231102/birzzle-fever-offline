@@ -1,0 +1,202 @@
+{
+  "candidate": "Birzzle Fever 1.1.2 v25 ranking template",
+  "status": "functional public-release qualification PASS on tested Galaxy S4; non-functional distribution gates remain",
+  "package": "com.halfbrick.birzzlefever",
+  "historical_application_identity": "3c8bb7308c3fcb60c439224bd595c794d8f31501",
+  "artifacts": {
+    "native-patches/v25-ranking-template/BirzzleFever-1.1.2-v25-ranking-template.apk": "66006ed20a308d52660bea5154a513a64d07f4d7f8d725bd5f02077c70168b05",
+    "native-patches/v25-ranking-template/BirzzleFever-1.1.2-v25-ranking-template-unsigned.apk": "4f020ad389da88fe9cd007a970c9cd9401fe564d27225910930e72878ef13f6f",
+    "native-patches/v25-ranking-template/apktool/assets/birzzle_seed_v1.zip": "654d78172046d1c95488447a133c827edfd01e09313d2298c3670d29d5ae088c",
+    "native-patches/v25-ranking-template/libef2d-v25-ranking-template.so": "6f2b88586c798b924e612d14e26a18e0367101fdb29a8bd05c97b4131edaee9e",
+    "native-patches/v25-ranking-template/apktool/lib/armeabi/libbirzzle.so": "bf0a350003b8ded667505b81e3edbb5e5ca008547109412dac987fba0821e5ae",
+    "native-patches/v25-ranking-template/evidence/ranking-two-same-uid-distinct-score.bin": "cf8510fa76cd64cb9576fca733714561f07b67bf4a134293f8461d0c516c280f",
+    "native-patches/v25-ranking-template/evidence/fresh-v25-progression-data.tar.gz": "4eb0b326e4a8db83cc7b8d6cb2cd25b5131187739cfbc3913e63c563ba7bc0ca",
+    "stress_v25_mature_cold_launch.py": "0763ffffe6ef8717e6b0ebd8f3c1a378845547cdf1eea752f0b4e374d757254f",
+    "stress_v25_first_read_faults.py": "8a1f40331d8827c510a52712fc93a44fab86b05c15775cd1ecea3ad7631d0f3a"
+  },
+  "seed": {
+    "entry_count": 26,
+    "ranking_cache": "files/d1fbe32e12b1a9d5fda79abf89e747f2",
+    "ranking_sentinel_scores": ["-1", "0"],
+    "exact_timestamp_extra": "ZIP 0x5455"
+  },
+  "native": {
+    "libef2d": "v23 response-pool hardening plus NetworkStatusSync=false offline routing",
+    "libbirzzle": "v15 portability, leaderboard/menu-transition, historical-ID, and unlimited-play lineage"
+  },
+  "java": {
+    "network_state": "reachable/connected compatibility values",
+    "gcm": "application registration bypassed and package GCM receiver/service removed",
+    "bootstrap": "26-file sanitized seed with exact Unix mtime restoration"
+  },
+  "signing": {
+    "type": "development debug key; not public release identity",
+    "certificate_sha256": "87:B0:89:6F:00:D6:2D:61:52:4A:07:26:03:3F:C6:FC:55:36:31:61:BF:3F:70:28:83:23:35:FB:4B:E3:25:3B",
+    "apk_signature": "v1/JAR SHA256withRSA",
+    "verification": "jarsigner verified; strict PKIX rejects expected self-signed certificate"
+  },
+  "validation": {
+    "fresh_self_seed": {
+      "result": "pass",
+      "games": 3,
+      "pool": "-1,16; records 0..16; CONSISTENT",
+      "ranking_score": 257680,
+      "cold_restart": "pass",
+      "fatal_markers": 0,
+      "evidence": "native-patches/v25-ranking-template/evidence/fresh-v25-progression-pool.json"
+    },
+    "mature_cold_starts": {
+      "result": "pass",
+      "launches": 10,
+      "pool": "-1,156 unchanged",
+      "index_sha256": "c75e925c83ce92d7157f77306b123eb0e7e5944f3926e0d623edb55ed8813d07",
+      "request0_sha256": "5f86e21d92f615c0854eadc08b7872857e280d92f516053d7c4577eba59ef0a2",
+      "evidence": "native-patches/v25-ranking-template/evidence/mature-cold-starts/results.json"
+    },
+    "first_read_faults": {
+      "result": "pass",
+      "cases": 9,
+      "accepted_evidence": "native-patches/v25-ranking-template/evidence/first-read-faults/accepted-results.json"
+    },
+    "manual_ranking_template": {
+      "result": "pass",
+      "score": 4810,
+      "refreshes_observed": 7,
+      "evidence": "native-patches/v25-ranking-template/evidence/ranking-two-same-uid-distinct-score.log"
+    },
+    "documented_progression_soak": {
+      "result": "pass",
+      "apk_sha256": "66006ed20a308d52660bea5154a513a64d07f4d7f8d725bd5f02077c70168b05",
+      "evidence_root": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z",
+      "result_evidence": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/release-qualification-result.json",
+      "device": {
+        "model": "Galaxy S4 SGH-I337M",
+        "android": "4.4.2",
+        "package_uid": 10243,
+        "xposed_identity_module": false
+      },
+      "workload": {
+        "offline": {
+          "completions": 3,
+          "midgame_quits": 1,
+          "powerup_cancellation_returns": "multiple",
+          "ranking_response_count": 8,
+          "ui_and_ranking_transitions": "normal"
+        },
+        "connected": {
+          "completions": 7,
+          "midgame_quits": 1,
+          "wifi_disconnect_reconnect": "tolerated",
+          "popo_final_level": 3,
+          "popo_upgrade_coin_delta": -250,
+          "extra_time_applied_on_next_game": true,
+          "bonus_bombs_applied_on_next_game": true,
+          "missions_and_rewards_progressed": true,
+          "ranking_response_count": 12,
+          "ui_and_ranking_transitions": "normal"
+        },
+        "total_completions": 10,
+        "total_midgame_quits": 2
+      },
+      "checkpoints": [
+        {
+          "label": "00_baseline",
+          "manifest": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/00_baseline/manifest.json",
+          "pool_index": "-1,179",
+          "record_count": 180,
+          "classification": "CONSISTENT"
+        },
+        {
+          "label": "01_offline_session",
+          "manifest": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/01_offline_session/manifest.json",
+          "pool_index": "-1,196",
+          "record_count": 197,
+          "classification": "CONSISTENT",
+          "records_added": 17
+        },
+        {
+          "label": "02_connected_session",
+          "manifest": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/02_connected_session/manifest.json",
+          "pool_index": "-1,231",
+          "record_count": 232,
+          "classification": "CONSISTENT",
+          "records_added": 35
+        },
+        {
+          "label": "03_final_cold_restart",
+          "manifest": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/03_final_cold_restart/manifest.json",
+          "pool_index": "-1,231",
+          "record_count": 232,
+          "classification": "CONSISTENT",
+          "records_added": 0,
+          "ranking_response_count": 2
+        }
+      ],
+      "comparisons": [
+        {
+          "path": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/comparisons/00_baseline_to_01_offline_session.json",
+          "passed": true,
+          "added_records": 17
+        },
+        {
+          "path": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/comparisons/01_offline_session_to_02_connected_session.json",
+          "passed": true,
+          "added_records": 35
+        },
+        {
+          "path": "native-patches/v25-ranking-template/evidence/public-release-qualification-repeat-20260901T231648Z/comparisons/02_connected_session_to_03_final_cold_restart.json",
+          "passed": true,
+          "added_records": 0
+        }
+      ],
+      "pool_invariants": {
+        "all_checkpoints_valid_contiguous_warning_free": true,
+        "all_comparisons_preserved_prior_records_byte_identical": true,
+        "fatal_markers": 0,
+        "request0_sha256_unchanged": "5f86e21d92f615c0854eadc08b7872857e280d92f516053d7c4577eba59ef0a2",
+        "final_index_sha256": "2e5b0984ddd1fdb5efa9be782ac74c6cb4045a5841ae9b9626f89309c54f5a37",
+        "final_tail_sha256": "2923c49f8fc6640b81932622438802847350db16e666dd5f250835dd9f13d82a"
+      },
+      "ranking_scores": [
+        1017964,
+        1107760,
+        1192515
+      ],
+      "final_cold_restart": {
+        "coins": 985140,
+        "gems": 99870,
+        "experience": 6503,
+        "level": 11,
+        "level_progress_percent": 91,
+        "popo_level": 3,
+        "mission_class": "Expert II",
+        "missions_completed": 2,
+        "missions_total": 6,
+        "menu_lives": 5,
+        "powerup_screen_lives": 5,
+        "leaderboard_entries": 1,
+        "leaderboard_score": 1192515,
+        "responsive_return_flows": true
+      },
+      "zero_life_coverage": "not reached in this rerun; unlimited start at zero remains supported by accepted earlier user testing",
+      "known_observation": "Daily bonus day 2 (+200 coins) occurred once after a game in the connected process. A prior bonus is recalled from an abandoned/restarted run on the same host date, but no second bonus occurred in the same connected process and none appeared merely on final cold launch; this is not classified as a proven bug."
+    }
+  },
+  "remaining_release_gates": [
+    "second supported 32-bit ARM device if broad support is claimed",
+    "dedicated release key and final release re-sign",
+    "legal distribution decision"
+  ],
+  "device_checkpoint": {
+    "device": "Galaxy S4 SGH-I337M Android 4.4.2",
+    "installed": "exact v25 development APK",
+    "installed_apk_sha256": "66006ed20a308d52660bea5154a513a64d07f4d7f8d725bd5f02077c70168b05",
+    "package_uid": 10243,
+    "xposed_identity_module": false,
+    "state": "final cold-restart checkpoint -1,231, 232 records, force-stopped",
+    "index_sha256": "2e5b0984ddd1fdb5efa9be782ac74c6cb4045a5841ae9b9626f89309c54f5a37",
+    "request0_sha256": "5f86e21d92f615c0854eadc08b7872857e280d92f516053d7c4577eba59ef0a2",
+    "tail_sha256": "2923c49f8fc6640b81932622438802847350db16e666dd5f250835dd9f13d82a",
+    "functional_release_readiness": "PASS"
+  }
+}
