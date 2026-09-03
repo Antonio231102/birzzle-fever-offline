@@ -39,4 +39,4 @@ V25 is the current functionally qualified development milestone. The source repo
 - [x] Preserve milestone patch sources, checkpoint notes, and aggregate V25 evidence.
 - [x] Add GitHub validation workflow and local repository-policy checker.
 - [ ] Add final patcher usage, checksum, troubleshooting, rollback, and provenance instructions after the build is reproducible.
-- [ ] Create, push, and verify the private GitHub remote.
+- [x] Create, push, and verify the private GitHub remote.

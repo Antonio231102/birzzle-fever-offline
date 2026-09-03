@@ -16,6 +16,7 @@ Labels:
 - Added source-only legal notice, repository policy, architecture, build boundary, installation model, validation matrix, contribution guide, and automated tracked-file audit.
 - Replaced fixed private ADB serial defaults with operator-supplied configuration.
 - Recorded that the initial repository is not yet a one-command reproducible V25 build.
+- Created the private `Antonio231102/birzzle-fever-offline` GitHub repository; public visibility remains gated on a fresh history/content audit.
 
 ## V25 — ranking-template correction — Accepted
 
