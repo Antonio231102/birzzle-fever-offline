@@ -1,10 +1,12 @@
-# Birzzle Fever Offline Preservation
+# Birzzle Fever Offline
 
 Source code, patch research, save-format analysis, and validation records for making **Birzzle Fever 1.1.2** usable after its original servers were retired.
 
 The current development milestone is **V25**. On the tested 32-bit ARM Galaxy S4 running Android 4.4.2, V25 starts without a network interface, initializes from a sanitized local seed, preserves progression, reconstructs the personal leaderboard, permits play at zero displayed lives, and requires neither Xposed nor Titanium Backup for a fresh installation.
 
 ## Release status
+
+The GitHub repository is intentionally private during reproducibility, legal, and second-device review. Private visibility does not relax the tracked-file policy: complete extracted packages, bulk assets, device captures, and signing material remain excluded.
 
 V25 passed the project's single-device functional qualification:
 
@@ -28,6 +30,7 @@ See [V25_PROJECT_STATUS.md](V25_PROJECT_STATUS.md) for exact evidence and limita
 ## Repository contents
 
 - Root `patch_*.py` and `build_*.py`: historical binary patch and packaging scripts.
+- `reverse-engineering/`: narrow decompiled Smali excerpts actually analyzed during the project; complete decompiled trees are excluded.
 - `native-patches/`: authored ARM/Thumb assembly, milestone notes, aggregate results, and the V25 release-evidence manifest.
 - `xposed-birzzle-id-spoof/`: source for the earlier identity-spoofing research module. V25 does not require it.
 - Save research: format, cryptography, state precedence, profile maps, response-pool reconstruction, and diagnostic tools.
@@ -37,11 +40,11 @@ See [V25_PROJECT_STATUS.md](V25_PROJECT_STATUS.md) for exact evidence and limita
 - [CHANGELOG.md](CHANGELOG.md): accepted, investigative, and rejected milestones from V1 through V25.
 
 ## Deliberately excluded
-
 This repository does not contain:
 
 - original or modified APKs;
-- extracted native libraries or decompiled game contents;
+- extracted native libraries;
+- complete extracted/decompiled game trees or bulk game assets; only reviewed code excerpts used by the reverse-engineering work are retained;
 - save backups or embedded save archives;
 - device logs, screenshots, or raw app-data captures;
 - Android SDK/platform tools, apktool, LLVM toolchains, or vendored Python packages;

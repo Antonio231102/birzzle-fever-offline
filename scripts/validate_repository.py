@@ -23,6 +23,11 @@ REQUIRED_PATHS = {
     "docs/INSTALLATION.md",
     "docs/REPOSITORY_POLICY.md",
     "docs/TESTING.md",
+    "reverse-engineering/README.md",
+    "reverse-engineering/smali/BirzzleFever.GetUniqueDeviceID.smali",
+    "reverse-engineering/smali/BirzzleFever.Network.smali",
+    "reverse-engineering/smali/BirzzleFever.PostInitialize-gcm-bypass.snippet.smali",
+    "reverse-engineering/smali/MyApplication.onCreate-bootstrap.snippet.smali",
     "native-patches/v25-ranking-template/release-evidence.json",
 }
 

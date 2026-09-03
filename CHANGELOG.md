@@ -12,7 +12,7 @@ Labels:
 ## Unreleased public-source import
 
 - Curated development and research sources for GitHub.
-- Excluded APKs, extracted libraries, decompiled game contents, saves, logs, screenshots, device captures, toolchains, and keys without deleting their local copies.
+- Excluded APKs, extracted libraries, complete decompiled trees, bulk assets, saves, logs, screenshots, device captures, toolchains, and keys without deleting local copies; retained only the reviewed decompiled code excerpts used by the reverse-engineering work.
 - Added source-only legal notice, repository policy, architecture, build boundary, installation model, validation matrix, contribution guide, and automated tracked-file audit.
 - Replaced fixed private ADB serial defaults with operator-supplied configuration.
 - Recorded that the initial repository is not yet a one-command reproducible V25 build.

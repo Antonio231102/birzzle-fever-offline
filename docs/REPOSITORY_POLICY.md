@@ -4,6 +4,11 @@
 
 The local workspace is both a development tree and an evidence archive. Git is intentionally a curated source view, not a mirror of every local file. `.gitignore` exclusions do not delete, move, or modify excluded files.
 
+## Remote visibility
+
+The `birzzle-fever-offline` GitHub repository remains private until the reproducible-build, legal-distribution, signing, and compatibility gates are resolved. A later visibility change requires another tracked-file and history audit; deleting a file in a later commit does not remove it from prior Git objects.
+
+
 ## Included
 
 Commit material when it is authored by the project and useful for implementation or independent review:
@@ -11,6 +16,7 @@ Commit material when it is authored by the project and useful for implementation
 - Python patch, build, analysis, and test source;
 - ARM/Thumb assembly source;
 - Xposed module source and compile-time stubs;
+- narrow decompiled code excerpts that were directly analyzed, with provenance and purpose documented;
 - Markdown design, research, checkpoint, and result summaries;
 - aggregate JSON manifests that contain no private identifiers or raw save payloads;
 - repository validation and GitHub workflow files;
@@ -25,7 +31,7 @@ Never commit:
 
 - original, modified, signed, or unsigned APKs;
 - compressed APKs and Android incremental-install signatures;
-- extracted `.so` libraries, DEX/resources, decompiled Smali trees, or original assets;
+- extracted `.so` libraries, complete DEX/resource or decompiled Smali trees, and bulk original assets;
 - compiled patch blobs, ELF/object files, or generated build directories;
 - Titanium Backup bundles, save archives, embedded seed archives, or decrypted profiles;
 - device app-data archives, response pools, raw checkpoint state, or cleanup backups;

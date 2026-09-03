@@ -7,7 +7,7 @@ V25 is the current functionally qualified development milestone. The source repo
 - [ ] Complete legal review of modified-APK redistribution.
 - [ ] If redistribution is not approved, ship only a user-supplied-original patcher.
 - [ ] Document provenance requirements for the sanitized bootstrap seed.
-- [ ] Decide the final repository owner, GitHub repository name, visibility, and release channels before creating a remote.
+- [x] Use the `birzzle-fever-offline` repository name with private visibility under the authenticated GitHub account.
 
 ## Reproducible build
 
@@ -39,4 +39,4 @@ V25 is the current functionally qualified development milestone. The source repo
 - [x] Preserve milestone patch sources, checkpoint notes, and aggregate V25 evidence.
 - [x] Add GitHub validation workflow and local repository-policy checker.
 - [ ] Add final patcher usage, checksum, troubleshooting, rollback, and provenance instructions after the build is reproducible.
-- [ ] Create the GitHub remote only after owner/name/visibility are explicitly chosen.
+- [ ] Create, push, and verify the private GitHub remote.

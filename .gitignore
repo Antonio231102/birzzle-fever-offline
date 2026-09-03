@@ -70,7 +70,7 @@ Thumbs.db
 tools/
 platform-tools-latest-windows/
 
-# Extracted/decompiled proprietary game contents and generated build trees
+# Complete extracted/decompiled game trees, bulk assets, and generated builds
 analysis_extract/
 native-patches/**/apktool/
 native-patches/**/apk-build/
@@ -105,6 +105,7 @@ native-patches/**
 !native-patches/**/*.S
 !native-patches/v25-ranking-template/release-evidence.json
 !native-patches/v23-request-first-index/embedded-seed-audit.json
+# Project-authored bootstrap code is the sole narrow exception inside apktool.
 !native-patches/v24-connectivity-independent/apktool/smali/com/halfbrick/birzzlefever/SaveBootstrap.smali
 
 # Original 2016 Titanium Backup bundle at the workspace root
