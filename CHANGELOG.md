@@ -4,6 +4,8 @@ This chronology was reconstructed from preserved patch scripts, milestone direct
 
 Labels:
 
+- **Candidate**: behavior verified on its target device; broader regression qualification remains pending.
+- **Pending**: built and statically verified; device behavior not yet qualified.
 - **Accepted**: retained directly or by lineage in V25.
 - **Superseded**: useful milestone replaced by a later implementation.
 - **Investigative**: diagnostic/fault-injection build, never intended for release.
@@ -17,6 +19,77 @@ Labels:
 - Replaced fixed private ADB serial defaults with operator-supplied configuration.
 - Recorded that the initial repository is not yet a one-command reproducible V25 build.
 - Created the private `Antonio231102/birzzle-fever-offline` GitHub repository; public visibility remains gated on a fresh history/content audit.
+
+## V37 — global power-up scene marker — Pending
+
+- Reproduced V36's non-crashing empty-leaderboard softlock on the first power-up-selection return after 10/10 settled cold launches.
+- Confirmed `POCKET.GET` and `GIFT.GET.COUNT` completed but no `SCORE.RANKING` followed; the live power-up marker was clear while the request gate remained closed.
+- Found that V14 marked only one of seven constant scene-`0x0A` calls, allowing tutorial/progression routes to enter the same power-up screen without arming a later ranking generation.
+- Moved marking to `CStoryManager::SetCurrentScene()` itself, restored the old single-callsite hook, and preserved the original scene store for all values.
+- Built and statically verified the signed APK and exact four-range native delta. Device deployment is intentionally pending.
+
+## V36 — BuyPet-response ranking generation — Superseded candidate
+
+- Replaced untraversed tutorial-state guesses with the deterministic `POCKET.SET BuyPet` completion path.
+- Passed the fresh-save free-pet tutorial, its forced first game, a normal Polo purchase, and 10/10 settled Galaxy S4 cold launches.
+- Failed final power-up-return stress because its inherited V14 marker did not cover every route into the power-up scene.
+
+## V35 — tutorial state-`0x41` marker — Rejected
+
+- Tested the alternate tutorial state callback after V32's state-`0x42` hook was not traversed.
+- Live state showed that this callback also did not arm the post-purchase ranking generation.
+
+## V34 — isolated retryable tutorial generation — Superseded
+
+- Separated the tutorial/BuyPet pending byte from V14's power-up byte and corrected for the legacy Thumb ADD-PC address shift.
+- Kept a pending generation retryable until `GetRanking()` accepted it.
+- The dispatch behavior was retained, but the speculative tutorial marker source was not traversed.
+
+## V33 — retryable tutorial ranking marker — Rejected
+
+- Avoided consuming a tutorial marker when an early ranking dispatch could not accept a request.
+- Did not fix the free-pet flow because the underlying state-`0x42` marker never became active.
+
+## V32 — tutorial state-`0x42` ranking re-arm — Rejected
+
+- Added a tutorial-specific marker intended to preserve the post-free-pet main-menu ranking.
+- Device state proved the selected tutorial callback was not part of the observed purchase path.
+
+## V31 — corrected ranking lineage — Superseded
+
+- Rebased the unlimited-play changes onto the actual V14 ranking lineage instead of the accidental V11 lineage used by V15.
+- Restored startup and established menu-return protections while retaining the V26 package's Java and seed payloads.
+- Exposed the separate free-pet post-purchase generation gap addressed by V36.
+
+## V30 — transaction boundary fault injection — Investigative
+
+- Added private one-shot controls and logging wrappers around record, index, flush, rename, directory-sync, and cleanup boundaries.
+- Exercised deterministic interrupted-write recovery without shipping diagnostic behavior in a release candidate.
+
+## V29 — V26 transaction diagnostic — Investigative
+
+- Wrapped V26's compatibility writer operations without changing their return values.
+- Recorded the exact open, sync, rename, directory, and cleanup outcomes used to isolate persistence failures.
+
+## V28 — response-index mtime diagnostic — Investigative
+
+- Instrumented the V26 mtime guard to report its basename match and accept/reject path.
+- Used only for distinguishing timestamp selection failures from transaction-order failures.
+
+## V27 — V25 mtime-guard control — Investigative
+
+- Restored V25's mtime guard in the V26 package while leaving V26's modern writer changes intact.
+- Served as an A/B control for separating modern syscall behavior from response-index timestamp selection.
+
+## V26 — modern data-path atomic writer — Candidate
+
+- Reproduced the first-pet softlock on Android 13: `inventory.buy` was saved but never delivered an `INVENTORY.BUY` callback.
+- Instrumentation identified `renameat` returning `-18` (`EXDEV`) because the temporary index used `/data/data/...` while the authoritative path used `/data/user/0/...`.
+- Derived the temporary index and parent directory from the authoritative runtime path, keeping both sides of the atomic rename on the same mount.
+- Replaced legacy direct filesystem syscalls with ARM EABI `openat`, `renameat`, and `unlinkat`.
+- Made response-index mtime identification compare the basename rather than assuming a 44-byte data-directory prefix.
+- On the Galaxy S20 running Android 13, passed fresh Suri acquisition and the follow-on `INVENTORY.USE`, `POCKET.SET BuyPet`, ranking refresh, and `POCKET.SET GameStart` callbacks without a crash or softlock.
+- Galaxy S4 Android 4.4.2 regression qualification remains pending.
 
 ## V25 — ranking-template correction — Accepted
 
