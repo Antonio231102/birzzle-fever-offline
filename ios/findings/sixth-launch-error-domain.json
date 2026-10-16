@@ -1,0 +1,29 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "Birzzle Fever iOS 1.0.4 with ASLR-relative request, failure, and NSError domain/code hooks",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260927T005549Z",
+  "started_utc": "2026-09-27T00:55:49.362651+00:00",
+  "ended_utc": "2026-09-27T00:57:38.904828+00:00",
+  "operator_observation": "After a few seconds of loading animation, the dialog read: Failed to connect to network. Please check network status.",
+  "in_place_upgrade_completed_before_capture": true,
+  "game_process_observations": {
+    "network_initialization_error_count": 2,
+    "nserror_domain": "NSURLErrorDomain",
+    "nserror_code": -1003,
+    "connector_failure_request_id": 1,
+    "numeric_commandid_serializer_events": 0,
+    "relative_log_order": "The same game process logged NSURLErrorDomain:-1003 immediately before Failed:1.",
+    "failing_hostname_or_url_logged": false,
+    "server_http_status_or_reply_logged": false
+  },
+  "crash_copy": {
+    "return_code": 0,
+    "copied_crash_report_count": 0,
+    "new_native_crash_report_copied": false
+  },
+  "interpretation": "For this launch, RankingCore connection:didFailWithError: received NSURLErrorDomain code -1003, the Foundation cannot-find-host error: the request hostname could not be resolved. The previous launch logged numeric code 8 without its domain; its cause cannot be inferred or equated with this launch. The request URL, symbolic command and required server-derived state are still unknown; a DNS failure does not specify an offline response format.",
+  "error_semantics_reference": "https://developer.apple.com/documentation/foundation/nsurlerrorcannotfindhost-c.enum.case?language=objc",
+  "next_action": "Identify which host request ID 1 contacts and map the server reply consumed at startup before implementing a local offline source. Avoid full-URL or user-data logging; a further manual iPad test requires a new explicit readiness gate.",
+  "privacy": "No token, member identifier, UDID, account data, full URL or raw crash filename is included. Raw syslog and app archives stay private in ignored ios/captures. Android was not used."
+}

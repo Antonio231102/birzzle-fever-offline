@@ -1,0 +1,24 @@
+{
+  "session": "ios/captures/20260927T171438Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-mutable-token-guarded.ipa",
+  "on_device_data": "Corrected IPA installed in place after fresh readiness; no further app-data wipe or change to the clean iOS IPA, archived iPad app backup or Android source archive.",
+  "operator_observation": "The main menu/tutorial became accessible. Code 26 appeared after selecting pet Suri, then code 26 appeared again after attempting to start a game. The game crashed immediately afterward. No playable level was observed; do not relaunch this unchanged failed build to confirm the crash.",
+  "new_game_process": {
+    "accepted_original_callback_queued_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "exact_authenticated_mutation_api_by_id": {"10": "inventory.buy", "11": "pocket.set"},
+    "unhandled_failed_numeric_ids": [],
+    "final_original_parser_checkpoints_for_id_11": [101, 201, 231, 211, 221, 301],
+    "evidence_limit": "Original decoder, JSON, queued ID, token and result callback checkpoints passed for both mutations. These stages do not prove the iOS game accepted the business data or account state; neither code-26 popup maps uniquely to an observed failed request. No ID12 was queued in this process before the crash."
+  },
+  "new_matching_crash": {
+    "crash_copy_exit": 0,
+    "matching_game_process_reports": 1,
+    "exception": "EXC_BAD_ACCESS (SIGSEGV); KERN_INVALID_ADDRESS at 0x00000018",
+    "crashed_thread": 0,
+    "crash_location": "Original iOS executable ARM Thumb VM 0x0e387a (physical PC 0x0015987a, mapped slide 0x76000), not the newly appended native offline segment.",
+    "machine_invariant": "Crash ARM r6 is zero; link register minus verified app slide is original VM 0x4c007. At original VM 0x4bfea the direct caller runs original selected-model lookup 0xded18, stores its null result in r6, checks it, but still calls original two-slot accessor 0xe3870 with r0=0 and index r1=1. The original accessor dereferences 0x18. Missing selected-model entry is verified; whether caused by stage.dat, inventory, profile, or another producer is not proven.",
+    "temporal_boundary": "Original queued ID11 pocket.set callback was logged during the same second as the matching game-process crash.",
+    "read_only_app_state": "AFC2 read only the exact matching game's Documents directory and checksum-validated local offline state. Owned item slot 0, original ability level 1, and a positive GameStart counter persisted; the selected original model was not thereby initialized. The archived stage.dat is malformed and was never imported, but a causal link to this crash is unproven."
+  },
+  "privacy": "Only process-scoped numeric markers, original executable PCs, error type and the operator's screen report are recorded; no raw identity, token, request parameters, USB identifier, copied filename, unrelated app logs or memory data are published."
+}

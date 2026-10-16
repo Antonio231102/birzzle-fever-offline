@@ -1,0 +1,24 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "Birzzle Fever iOS 1.0.4; two host-probe calls bypassed",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260926T045124Z",
+  "started_utc": "2026-09-26T04:51:24.922751+00:00",
+  "ended_utc": "2026-09-26T04:53:27.348584+00:00",
+  "operator_observation": "The same network error appeared at the splash, after the loading animation remained visible for a few seconds. Gameplay was not reached.",
+  "installed_executable_verified_against_local_patch": true,
+  "app_network_initialization_errors": {
+    "count": 2,
+    "text": "Could not successfully update network info during initialization.",
+    "app_focused_log_lines": [23, 25]
+  },
+  "app_specific_failing_url_or_server_response_logged": false,
+  "matching_native_crash_report_copied": false,
+  "crash_report_client_exit_code": 0,
+  "original_full_app_archive_retained": "ios/captures/backup-20260926T044656Z",
+  "post_upgrade_archive_retained": "ios/captures/post-upgrade-20260926T044903Z",
+  "container_comparison": "12 files remain; 11 have identical bytes. One Documents SQLite analytics-element table gained three rows and its primary-key counter advanced during the upgrade. No gameplay save data was inspected or disclosed.",
+  "interpretation_limit": "The bypass altered the launch's observed timing, but the splash error remains. The logs do not establish whether the game host probe was invoked, what request failed, or whether this is a separate sign-in/server gate.",
+  "next_step": "Instrument the iOS game's actual request dispatch and failure callbacks to identify the first failing command, endpoint, error/status, and required response format before building an offline response.",
+  "privacy": "Raw syslog, app archives, device identifiers, and account values remain private under ignored ios/captures. No Android build or ADB was used."
+}

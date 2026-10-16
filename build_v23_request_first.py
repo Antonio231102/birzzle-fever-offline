@@ -1,3 +1,4 @@
+import argparse
 import hashlib
 import shutil
 import subprocess
@@ -11,6 +12,9 @@ SOURCE_APK = Path(
 )
 SOURCE_LIBRARY = Path("native-patches/v22-first-read-recovery/libef2d.so")
 OUTPUT_DIR = Path("native-patches/v23-request-first-index")
+_parser = argparse.ArgumentParser(description="Apply the V23 request-first patch.")
+_parser.add_argument("--native-only", action="store_true", help="Build only the native library; do not read, package, or sign an APK.")
+_args = _parser.parse_args()
 OUTPUT_DIR.mkdir(exist_ok=True)
 OUTPUT_LIBRARY = OUTPUT_DIR / "libef2d.so"
 UNSIGNED_APK = OUTPUT_DIR / "BirzzleFever-1.1.2-v23-request-first-index-unsigned.apk"
@@ -43,6 +47,9 @@ for offset, (expected, replacement) in PATCHES.items():
         )
     library[offset:offset + len(replacement)] = replacement
 OUTPUT_LIBRARY.write_bytes(library)
+if _args.native_only:
+    print(f"native_sha256={hashlib.sha256(library).hexdigest()}")
+    raise SystemExit(0)
 
 with zipfile.ZipFile(SOURCE_APK, "r") as source, zipfile.ZipFile(UNSIGNED_APK, "w") as output:
     for item in source.infolist():

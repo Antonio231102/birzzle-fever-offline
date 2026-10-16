@@ -173,9 +173,11 @@ Base64Decode(DATA) = -1,102
 
 ### `KEY`
 
-`KEY` is an opaque generated token stored as Base64, usually decoding to 16 bytes in the observed files. It is not the AES key. The AES key is the fixed binary key shown above.
+`KEY` is an opaque generated token stored as Base64. It is not the AES key. The AES key is the fixed binary key shown above.
 
-The token is created by `MathUtility::GenerateToken` during `WriteContent`. The analyzed files do not require the token to derive the AES key.
+The token is created by `MathUtility::GenerateToken` during `WriteContent`. Through V41, this code incorrectly applied `strlen()` to a binary 16-byte MD5 digest: embedded zero bytes produced short or empty tokens. V42 encodes exactly 16 bytes. Existing nonempty short tokens remain compatible.
+
+The native reader still requires a parsed `KEY` field even though the token does not derive the AES key. A serialized `KEY:` with no value is discarded by its delimiter parser and makes the record unreadable despite a valid envelope checksum. The external analyzers now follow that parser's trailing-empty and first-duplicate semantics. See `INDEX_DIAGNOSTICS_AND_RECOVERY.md` for the narrow archive-only recovery procedure.
 
 ### `DATA`
 

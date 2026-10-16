@@ -1,0 +1,14 @@
+# Only pass this file via OPENSSL_CONF to libimobiledevice subprocesses targeting
+# the paired iOS 6 USB device. Never install it as the system OpenSSL policy.
+openssl_conf = birzzle_ios6_defaults
+
+[birzzle_ios6_defaults]
+ssl_conf = birzzle_ios6_ssl
+
+[birzzle_ios6_ssl]
+system_default = birzzle_ios6_tls
+
+[birzzle_ios6_tls]
+MinProtocol = TLSv1
+CipherString = DEFAULT:@SECLEVEL=0
+Options = UnsafeLegacyRenegotiation

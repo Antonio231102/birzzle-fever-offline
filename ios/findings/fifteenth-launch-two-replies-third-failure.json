@@ -1,0 +1,17 @@
+{
+  "session": "ios/captures/20260927T050120Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-two-replies-ios-timeout.ipa",
+  "operator_observation": "The usual loading animation was followed by a larger second loading animation, then Failed to connect to the game server. [code:26]. No menu or playable gameplay was reported.",
+  "game_process": {
+    "numeric_stage_sequence": ["request:1", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:2", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "Failed:3"],
+    "interpretation": "Both authenticated startup and login replies were selected, decrypted, parsed, matched their queued request IDs and archived token, and invoked the original iOS result callback. The per-request fresh token did not match the historical response on either request. The next request ID3 was not locally handled and reached the original failure callback; its symbolic API and response contract have not been proven.",
+    "captured_app_related_lines": 41,
+    "new_app_crash_incidents": 0,
+    "copied_app_crash_reports_predating_or_outside_trial": 3,
+    "crash_report_copy_succeeded": true
+  },
+  "android_historical_inventory": "Authenticated Android cached replies include several distinct command types with historical numeric request ID3; numeric ID alone does not select the iOS command or establish compatible iOS response fields.",
+  "original_artifacts": "The original iOS IPA, full app backup, Android APK and Android backup remain unchanged. The updated IPA was installed in place; no uninstall, reset, re-launch or replay of the reported failure was performed.",
+  "privacy": "No raw syslog, copied crash filenames, identifiers, response contents, or tokens published."
+}

@@ -1,12 +1,12 @@
 # Installation model
 
-## No public artifact yet
+## Release artifact status
 
-The repository does not ship an APK or save bundle. V25 is a qualified development checkpoint, not a signed public release. Do not download APKs presented by third parties as official project builds unless their checksum and signing certificate appear in a future release manifest from the project maintainers.
+The repository does not ship an APK or save bundle. A release-signed V42 APK has been prepared locally, and the operator reports its eight V42 functional checks passed on the Galaxy S4/Android 4.4.2 and Galaxy S20 Plus/Android 13. Those empirical runs collected no logs or save backups; see [TESTING.md](TESTING.md). Use published checksums and signing-certificate metadata to identify an authorized artifact rather than relying on a third-party filename.
 
 ## Intended release experience
 
-The accepted V25 behavior supports a single-APK installation:
+The V42 fresh APK-only initialization and fresh-player progression checks passed on both reported devices. The intended single-APK workflow is:
 
 1. uninstall an incompatible/debug-signed prior build after backing up any wanted app data;
 2. install the release-signed APK;
@@ -31,7 +31,7 @@ This is the repository's preferred conservative distribution model until the leg
 
 ## Upgrade and rollback constraints
 
-Android requires the same signing certificate for in-place updates. The current development APK uses a debug key and cannot be updated in place by a future release-key build. The first public-key cutover therefore requires uninstall/reinstall unless the user independently migrates compatible data.
+Android requires the same signing certificate for in-place updates. The earlier development V42 and the release-signed V42 use different certificates, so the release APK cannot update the development installation in place. The first release-key cutover therefore requires uninstall/reinstall unless the user independently migrates compatible data.
 
 Before uninstalling any build with meaningful progress:
 
@@ -45,13 +45,16 @@ A failed or unknown build should be removed rather than installed over a working
 
 ## Compatibility claims
 
-Verified development environment:
+Reported V42 functional-pass environments:
 
-- Samsung Galaxy S4 SGH-I337M;
-- Android 4.4.2;
-- 32-bit ARM application process.
+| Device | Android | Evidence |
+|---|---|---|
+| Samsung Galaxy S4 | 4.4.2 | Operator-reported manual pass |
+| Samsung Galaxy S20 Plus | 13 | Operator-reported manual pass |
 
-Other Android versions and ARM devices may work, but are unsupported until exercised. Modern Android package restrictions, linker behavior, and signature schemes require separate validation.
+All eight named functional checks passed on both devices without observed progress loss, crashes, freezes, or softlocks. No logs or save-file backups were collected for these empirical runs. The older instrumented S4 results remain separate evidence.
+
+These observations do not establish support for every Android version or device, particularly devices without support for this 32-bit application.
 
 ## Historical Xposed route
 

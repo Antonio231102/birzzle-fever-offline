@@ -1,0 +1,16 @@
+{
+  "session": "ios/captures/20260927T061911Z/",
+  "installed_archive": "ios/BirzzleFever-HB-offline-tutorial-api-trace.ipa",
+  "operator_observation": "Code 26 appeared at splash, followed by Failed to update the game information. Check your network connection status and try again.",
+  "new_launch_game_process": {
+    "accepted_original_callback_ids": [1, 2, 3, 4],
+    "unhandled_failed_ids": [5],
+    "symbolic_api_of_id5": "Unknown in this launch: the installed classifier only covered queued IDs 7–63; numeric request IDs are not API names.",
+    "next_action": "Capture exact original iOS API for queued ID 5 with a local-only classifier extended down to ID 3, then implement a guarded request-aware response. Preserve the current isolated app save for that diagnosis."
+  },
+  "binary_comparison_to_prior_nine_reply_ipa": "Exactly one executable byte differs: the numeric-classifier upper bound changed from ID 9 to ID 63. No response selection or wire payload byte changed.",
+  "copied_app_crash_reports_outside_trial": 3,
+  "new_app_crash_reports_in_trial": 0,
+  "device_data": "Not wiped; the operator approved optional wipe without backup if evidence later establishes need. The original full app backup remains untouched.",
+  "privacy": "No raw syslog, account identity, encryption material, actual PID or copied crash filename published."
+}

@@ -1,0 +1,29 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "Birzzle Fever iOS 1.0.4 with ASLR-relative request, failure, NSError, and privacy-filtered API/host hooks",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260927T014206Z",
+  "started_utc": "2026-09-27T01:42:06.358157+00:00",
+  "ended_utc": "2026-09-27T01:42:59.124706+00:00",
+  "operator_observation": "After a few seconds of loading animation, the same dialog appeared: Failed to connect to network. Please check network status.",
+  "in_place_upgrade_completed_before_capture": true,
+  "game_process_observations": {
+    "first_failing_request_id": 1,
+    "first_request_api_log": "request:1",
+    "api_redacted_by_bounded_uppercase_dotted_identifier_filter": true,
+    "first_request_effective_hostname": "gs-birzzlefeverhb.enfeelcdn.com",
+    "nserror_domain": "NSURLErrorDomain",
+    "nserror_code": -1003,
+    "connector_failure_request_id": 1,
+    "full_url_or_request_body_logged": false,
+    "server_http_status_or_reply_logged": false
+  },
+  "crash_copy": {
+    "return_code": 0,
+    "copied_crash_report_count": 0,
+    "new_native_crash_report_copied": false
+  },
+  "interpretation": "Request ID 1 used the captured hostname and failed DNS resolution in this session. The API hook emitted a fixed privacy fallback instead of an uppercase dotted command: this does not establish its actual API or reply contract. The archived Objective-C request bridge creates an NSString with format %s from a caller-supplied native C string; static code does not reveal the runtime argument here. Historical Android offline response files have a matching iOS file crypto key, but their local lookup and iOS routing remain unverified. No offline iOS save or replacement server was installed.",
+  "next_action": "Map the native request API's runtime value through a privacy-safe exact-command matcher or static callsite evidence after a separate manual readiness gate. Establish native save root, identity selection, and actual iOS response lookup before bootstrapping the historical Android identity into an iOS offline save.",
+  "privacy": "No token, member identifier, UDID, account data, full URL, request parameters, or crash filename is included. Raw syslog stays private in ignored ios/captures. Android was not used."
+}

@@ -41,6 +41,8 @@ def parse_request(raw: bytes, mtime: int):
     envelope = decrypt2(raw)
     if envelope is None:
         return {"valid": False, "failure_reason": "CCRYPT2_INVALID"}
+    if envelope["field_failure_reason"]:
+        return {"valid": False, "failure_reason": envelope["field_failure_reason"]}
     timestamp = envelope["timestamp"]
     delta = mtime - timestamp if timestamp is not None else None
     payload = envelope["decoded_data"]

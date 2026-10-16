@@ -1,0 +1,28 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "iOS 1.0.4 with host-probe bypass and first request-ID instrumentation",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260926T051232Z",
+  "started_utc": "2026-09-26T05:12:32.780067+00:00",
+  "ended_utc": "2026-09-26T05:14:11.210273+00:00",
+  "operator_observation": "The game crashed at the splash while the loading animation played, before a network alert appeared.",
+  "exception": "EXC_BAD_ACCESS (SIGSEGV), KERN_INVALID_ADDRESS at 0x00000000, thread 0",
+  "crash_frame_and_register_evidence": {
+    "app_image_start": "0x000f3000",
+    "static_text_vmaddr": "0x00004000",
+    "image_slide": "0x000ef000",
+    "crash_pc": "0x3975e5b6 in libobjc.A.dylib",
+    "crash_lr": "0x00373db0",
+    "static_nslog_stub": "0x00373dac",
+    "expected_slid_nslog_stub": "0x00462dac",
+    "r0_static_cfstring_address": "0x00480050",
+    "r1_static_cfstring_address": "0x0047f7c0",
+    "request_id_register_r2": 1
+  },
+  "diagnosis": "The diagnostic hook used unslid, hardcoded addresses for an imported NSLog stub and CFString objects. The executable was ASLR-slid by 0xef000, so this iOS-only diagnostic caused the crash; it is not evidence of a game backend failure.",
+  "request_traces_printed_before_crash": 0,
+  "app_network_initialization_errors_before_crash": 2,
+  "rollback": "Restored prior probe-only iOS IPA via in-place upgrade, never uninstall. A new non-uninstalling archive under ios/captures/restored-after-trace-crash-20260926T051541Z verifies the installed executable exactly matches the previously booting IPA; 12 container files remain. The original full-app archive under ios/captures/backup-20260926T044656Z remains intact.",
+  "next_action": "Correct the Thumb diagnostic trampolines to compute every imported stub and CFString address relative to PC, then emulate under a nonzero image slide before considering another operator-controlled test.",
+  "privacy": "The copied crash report, original archive, and raw syslog remain under ignored ios/captures; device/account identifiers and raw save contents are not reproduced. Android was not used."
+}

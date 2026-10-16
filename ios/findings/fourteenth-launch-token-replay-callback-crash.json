@@ -1,0 +1,19 @@
+{
+  "session": "ios/captures/20260927T034954Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_archive": "ios/BirzzleFever-HB-offline-state-token-aligned.ipa",
+  "operator_observation": "The game crashed during loading, before the usual network alert. Do not repeat this build's manual trial.",
+  "game_process": {
+    "numeric_stage_sequence": [1, 101, 201, 231, 210, 221, 301],
+    "interpretation": "The historical startup reply was selected, decrypted and parsed; its commandid matched request ID1. The original newly generated iOS request token differed, while the authenticated historical reply token matched. The original result callback was invoked before the crash; no menu or gameplay was observed.",
+    "new_distinct_native_crashes": 1,
+    "exception": "EXC_BAD_ACCESS (SIGSEGV); KERN_INVALID_ADDRESS at 0x00000001",
+    "faulting_game_image_vm": "0x1cfcf4",
+    "caller_game_image_vm": "0x1c83c2",
+    "crashed_thread": 15,
+    "crash_copy_successful": true
+  },
+  "confirmed_cross_platform_cause": "Authenticated historical Android SERVER.INIT has a nonzero timeout. Original iOS reads it as an integer at 0x180d60 and passes it to 0x1822c8, which captures the integer as a pointer for asynchronous worker cleanup 0x1c83b1. Worker map lookup dereferences address 1 at 0x1cfcf4. Original iOS zero-timeout branch skips the worker. The separately built iOS-adapted response retains historical identity but takes that zero-timeout branch; it has not been installed or device-tested.",
+  "rollback": "Immediately upgraded in place to previously observed noncrashing ios/BirzzleFever-HB-offline-state-stages.ipa. No uninstall or repeat launch.",
+  "privacy": "No raw logs, copied crash filenames, reply values, UID, token or member identifiers published."
+}

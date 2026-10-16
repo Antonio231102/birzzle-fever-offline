@@ -1,0 +1,15 @@
+{
+  "session": "ios/captures/20260927T051412Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-inventory-guarded.ipa",
+  "operator_observation": "The same Failed to connect to the game server. [code:26] error appeared. No playable game was reported.",
+  "game_process": {
+    "numeric_stage_sequence": ["request:1", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:2", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:3", "request:101", "request:201", "request:231", "request:211", "request:221", "request:301", "Failed:4"],
+    "interpretation": "The exact inventory.list branch selected a historical response for queued ID3. Original iOS decryption, JSON parsing, ID and token checks, and result callback all succeeded; the fresh iOS request token matched the authenticated post-login historical token for this reply. A different fourth request reached the unhandled original failure path. The fourth request's symbolic API is not established by numeric ID alone.",
+    "captured_app_related_lines": 50,
+    "new_app_crash_incidents": 0,
+    "copied_app_crash_reports_outside_trial": 3,
+    "crash_report_copy_succeeded": true
+  },
+  "privacy": "No raw logs, copied crash filenames, identifiers, response fields or tokens published."
+}

@@ -1,0 +1,18 @@
+{
+  "session": "ios/captures/20260927T175624Z/",
+  "installed_for_this_trial": "ios/BirzzleFever-HB-offline-model-probe.ipa",
+  "operator_observation": "On launching Birzzle Fever, code 26 appeared at the splash, followed by 'Failed to update the game information. Check your network connection status and try again.' No pet selection, game-start attempt or playable level occurred in this trial. The operator noted earlier pet/game-start actions might be relevant, but did not attribute the cause.",
+  "game_process": {
+    "one_new_pid": true,
+    "original_response_callbacks_accepted": [1, 2, 3, 4],
+    "fifth_exact_api": "pocket.get",
+    "fifth_exact_api_numeric_marker": 502,
+    "original_unhandled_failure_id": 5,
+    "matching_new_game_crash_reports": 0,
+    "model_probe_observations": "No model-probe file was created: the instrumented purchase/pocket-set boundary at ID10+ was never reached. No inference about original roster size or selected model follows."
+  },
+  "read_only_current_app_state": "Installation proxy identified the currently installed game's private container without publishing its UUID. The installer changed container path but the checksum-validated 972-byte local offline state migrated; owned pet slot 0, ability level 1 and a positive GameStart count remained. Other app containers were not read.",
+  "local_arm_diagnosis": "With the exact installed ARM IPA and migrated app state, pocket.get/ID5 queues a valid local frame when its irrelevant parameters decode normally. If an otherwise valid read has a non-UTF8/absent mutable-parameters NSString, the installed ARM IPA silently returns before trying the authenticated pocket.get response; the fixed successor avoids evaluating mutation parameters for reads. The actual on-device ID5 parameter condition was not observed, so this is a demonstrated possible failure, not proof of the splash cause.",
+  "staged_only_successor": "ios/BirzzleFever-HB-offline-model-probe-read-safe.ipa: built from the clean IPA and authenticated history, preserving original non-executable members. The actual linked ARM request path, with migrated state and a missing mutable-parameters UTF8 result, queues ID5 at slides 0, 0xef000 and 0x170000; the installed prior build did not queue it in the identical emulator scenario. This successor has not been installed or exercised on the iPad; physical playability remains unproven.",
+  "privacy": "Only a game-process PID count, numeric callbacks/classifier/failure, operator-provided popup text and nonidentifying original-model state flags are recorded; no copied crash filename, raw account, transaction, device identifier or unrelated app log is included."
+}

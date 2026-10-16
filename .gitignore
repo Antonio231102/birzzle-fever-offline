@@ -103,6 +103,9 @@ native-patches/**
 !native-patches/**/*.md
 !native-patches/**/*.py
 !native-patches/**/*.S
+!native-patches/v43-offline-christmas/v43_christmas.c
+!native-patches/v43-offline-christmas/v43_eve.c
+!native-patches/v43-offline-christmas/v43_inventory.c
 !native-patches/v25-ranking-template/release-evidence.json
 !native-patches/v23-request-first-index/embedded-seed-audit.json
 # Project-authored bootstrap code is the sole narrow exception inside apktool.

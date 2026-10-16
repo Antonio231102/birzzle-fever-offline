@@ -1,0 +1,14 @@
+{
+  "session": "ios/captures/20260927T170119Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-mutable-vfpv3-trial.ipa",
+  "on_device_data": "After fresh readiness, game-only uninstall/reinstall installed the authenticated native backend trial. Original clean iOS IPA, archived full iPad app backup and Android source archive were not modified; isolated Keychain items might have survived.",
+  "operator_observation": "After a few seconds of splash loading, 'Failed to connect to network. Please check network status.' appeared. Main menu was not reached. Do not relaunch this unchanged failed build to confirm the same error.",
+  "new_launch_game_process": {
+    "id_1": "Original framed startup reply reached decrypt, JSON, queued ID, archived-token match and original result callback (numeric stages 101, 201, 231, 210, 221, 301).",
+    "id_2": "The new dynamically allocated pocket.login reply reached original decrypt, JSON and matching queued ID (numeric stages 101, 201, 231), but no token or result-callback checkpoint occurred in the captured excerpt.",
+    "local_regression": "Executing the exact tested IPA's original ARM token hook with its allocated dynamic ID2 frame and a mismatched original iOS request token returned the original nonzero strcmp result. The hook previously recognized only pointers to its embedded static startup/login/inventory frames; it did not recognize newly allocated authenticated frames. This explains the missing login callback without claiming the visible alert identifies a unique network request."
+  },
+  "crash_copy": "Capture exit 0; no .crash report files were copied into this trial's ignored crash directory. The operator described a UI alert, not a process crash.",
+  "staged_not_tested_on_ipad": "ios/BirzzleFever-HB-offline-mutable-token-guarded.ipa uses queued frame pointer identity to select the appropriate independently authenticated pre-/post-login token. Unicorn executed the fixed actual ARM hook for dynamic ID2 and ID3 and confirmed unrelated pointers preserve original strcmp. Physical gameplay is not yet observed.",
+  "privacy": "Only app-process numeric parser stages and operator's on-screen text are recorded. No account identifiers, tokens, queued parameters, USB identifiers, raw logs or crash filenames are published."
+}

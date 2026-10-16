@@ -62,6 +62,30 @@ def identify_role(name: str) -> str | None:
     return None
 
 
+def parse_native_fields(body: bytes):
+    """Match FileWorker's getline split and map::insert (first value wins)."""
+    fields = {}
+    malformed = []
+    duplicates = []
+    lines = body.split(b"\n")
+    if lines[-1] == b"":
+        lines.pop()
+    for line in lines:
+        parts = line.split(b":")
+        if parts[-1] == b"":
+            parts.pop()
+        if len(parts) != 2:
+            malformed.append(line.decode("utf-8", "replace"))
+            continue
+        key, value = parts
+        name = key.decode("ascii", "replace")
+        if name in fields:
+            duplicates.append(name)
+        else:
+            fields[name] = value
+    return fields, malformed, duplicates
+
+
 def decrypt2(raw: bytes):
     try:
         ciphertext = base64.b64decode(raw, validate=True)
@@ -79,14 +103,11 @@ def decrypt2(raw: bytes):
     digest = plain[2:34]
     body = plain[34:]
     digest_valid = digest.lower() == hashlib.md5(body).hexdigest().encode("ascii")
-    fields = {}
-    malformed_lines = []
-    for line in body.split(b"\n"):
-        if b":" not in line:
-            malformed_lines.append(line.decode("utf-8", "replace"))
-            continue
-        key, value = line.split(b":", 1)
-        fields[key.decode("ascii", "replace")] = value
+    fields, malformed_lines, duplicate_fields = parse_native_fields(body)
+    field_failure = next(
+        (f"FIELD_MISSING_{name}" for name in ("KEY", "DATA", "TIMESTAMP") if name not in fields),
+        None,
+    )
     decoded_data = None
     if "DATA" in fields:
         try:
@@ -106,6 +127,8 @@ def decrypt2(raw: bytes):
         "digest_valid": digest_valid,
         "fields": {k: v.decode("utf-8", "replace") for k, v in fields.items()},
         "malformed_lines": malformed_lines,
+        "duplicate_fields": duplicate_fields,
+        "field_failure_reason": field_failure,
         "decoded_data": decoded_data,
         "timestamp": timestamp,
     }
@@ -192,6 +215,8 @@ def analyze_entry(path: str, raw: bytes, mtime: int):
             "digest_valid": decoded["digest_valid"],
             "fields": decoded["fields"],
             "malformed_lines": decoded["malformed_lines"],
+            "duplicate_fields": decoded["duplicate_fields"],
+            "field_failure_reason": decoded["field_failure_reason"],
             "decoded_data": summarize_data(decoded["decoded_data"]),
             "embedded_timestamp": timestamp,
             "timestamp_utc": (

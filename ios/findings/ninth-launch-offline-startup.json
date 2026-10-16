@@ -1,0 +1,21 @@
+{
+  "session": "ios/captures/20260927T024454Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "build": "ios/BirzzleFever-HB-offline-startup.ipa",
+  "deployment": "in-place upgrade; no uninstall",
+  "operator_observation": "After a few seconds of splash loading, the same network-status failure dialog appeared; no menu/gameplay confirmed.",
+  "current_game_process": {
+    "network_initialization_errors": 2,
+    "game_process_exceptions_in_focused_log": 0,
+    "diagnostic_request_failure_hook_events": 0,
+    "device_token_log_label_seen": true,
+    "member_identifier_log_label_seen": true,
+    "sensitive_values_redacted": true
+  },
+  "capture": {
+    "stop_reason": "operator",
+    "crash_copy_successful": true,
+    "new_crash_reports_copied": 0
+  },
+  "conclusion": "The guarded historical SERVER.INIT fallback did not make the game playable. This build has no success/fallback marker; its log cannot prove whether the offline branch ran or whether the dialog came from a later request. Do not replay the same trial merely to reconfirm the operator-reported error."
+}

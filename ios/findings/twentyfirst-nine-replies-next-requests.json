@@ -1,0 +1,18 @@
+{
+  "session": "ios/captures/20260927T061002Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-menu-three-replies.ipa",
+  "operator_observation": "The tutorial opened. At pet selection (Popo, Suri or Polo), code 26 appeared; Retry dismissed it, and the operator selected Suri. Code 26 reappeared; after dismissing it, starting a game produced code 13.",
+  "game_process": {
+    "selected_exact_request_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "menu_classifier_indexes": [701, 813, 917],
+    "original_decrypt_success_count": 9,
+    "original_json_success_count": 9,
+    "original_queued_id_match_count": 9,
+    "original_result_callback_count": 9,
+    "unhandled_failure_ids": [10, 11],
+    "visual_failure_or_playability": "Tutorial and pet selection became accessible after dismissing code 26, but repeated code 26 and code 13 on game start prevent a playable offline game. The selected pet was Suri; no persisted mutation was established."
+  },
+  "copied_app_crash_reports_outside_trial": 3,
+  "new_app_crash_reports_in_trial": 0,
+  "privacy": "Only bounded process-filtered numeric markers are recorded. No raw syslog, crash filenames, token, identity, or cached response values."
+}

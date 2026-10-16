@@ -1,0 +1,29 @@
+{
+  "session": "ios/captures/20260927T181445Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-model-probe-read-safe.ipa",
+  "operator_observation": "Code 26 appeared after selecting pet Suri. The operator tapped Retry to dismiss it and attempted to start one game, which crashed. The operator suggested an empty current pet slot from the failed selection as a possibility, not an established cause. No playable level was observed. Do not repeat this unchanged failed build.",
+  "fresh_game_process": {
+    "stale_prior_pid_excluded": true,
+    "accepted_original_callbacks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 11],
+    "selected_exact_api_id10": "inventory.buy",
+    "unhandled_failed_id": 10,
+    "selected_exact_api_id11": "pocket.set",
+    "id11_decoder_queued_token_result_checkpoints": [101, 201, 231, 211, 221, 301],
+    "purchase_failure_limit": "Exact inventory.buy ID10 was not answered by the local backend, so its original C++ success callback did not run. No request-parameter values were captured; neither the exact rejected condition nor a one-to-one mapping to the visible popup is proved."
+  },
+  "numeric_only_original_model_probe": {
+    "id10_before_purchase": {"roster_count": 6, "selected_model_found": false},
+    "id11_after_failed_purchase": {"roster_count": 6, "selected_model_found": false},
+    "interpretation": "The original game's model roster is nonempty; its current selection matches none of six available entries. This does not reveal the selected name, why it was not set, or whether the failed purchase is its sole cause."
+  },
+  "new_matching_crash": {
+    "reports": 1,
+    "exception": "EXC_BAD_ACCESS (SIGSEGV); KERN_INVALID_ADDRESS at 0x00000018",
+    "original_game_arm_vm": "0x0e387a",
+    "linked_original_selected_lookup_result_was_null": true,
+    "interpretation": "Same original selected-model null dereference as previous trial, at a different ASLR slide; not a new ARM backend fault."
+  },
+  "read_only_current_game_state": "Currently installed game's own Documents contains checksum-valid native offline state; pet slot 0 is owned at original ability 1, and a GameStart event was recorded. The first original iOS pet purchase transaction remains nonempty and is not published. No original clean IPA, Android source archive or iPad archived backup was modified.",
+  "staged_only_successor": "ios/BirzzleFever-HB-offline-repeat-pet-selected-probe.ipa accepts an already-owned same-ability pet despite a different valid purchase transaction, retaining the first purchase in saved state. The authenticated Android item-0 transaction differs from that already recorded on this iPad. Temporary host C execution against the actual device state also added an authenticated second pet without changing wallet. Crucially, the exact linked new ARMv7 IPA, executed at slides 0 and 0xef000 with the actual checksummed iPad state and authentic distinct item-0 request, enqueued the original game ID10 reply, wrote only the original app-private state, and kept owned pet, first transaction and wallet unchanged. Its bounded model probe emitted six entries, no selection, and a versioned selected-name-empty bit with no names. Original IPA member verification passed. Actual physical ID10 parameters were never captured; neither that failure's exact cause nor gameplay is proven. The successor is staged only and not installed.",
+  "privacy": "Only numeric process checkpoints, model-roster count/match flags, public API literals, original VM address, exception category and operator screen text are recorded; no raw request, purchase transaction, account, USB identifier, crash filename or unrelated app log is published."
+}

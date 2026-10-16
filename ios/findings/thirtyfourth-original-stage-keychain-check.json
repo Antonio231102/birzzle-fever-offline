@@ -1,0 +1,21 @@
+{
+  "session": "ios/captures/20260927T204602Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-original-stage-readonly-probe.ipa",
+  "operator_observation": "The main menu was reached, but code 26 appeared again and tutorial inputs did not respond. No level start or purchase was requested for this check.",
+  "original_account_stage_service_read_only": {
+    "logical_record": "stage.dat",
+    "fresh_game_process_numeric_status": 0,
+    "status_meaning": "The original game's Keychain helper returned nil with no NSError for the original account's stage.dat service. No accessible record was obtained by this exact read; absence of a record elsewhere or of a different stage/model source is not proven.",
+    "password_bytes_read_or_logged_by_probe": false,
+    "original_account_record_written_by_probe": false
+  },
+  "fresh_game_process": {
+    "accepted_original_callbacks": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "failed_request_ids": [],
+    "game_process_fatal_log_events": 0,
+    "new_original_model_roster_measurement": false
+  },
+  "stale_process_exclusion": "Six app-focused lines from an earlier still-recorded game process include Failed:11 and Failed:12. Those are not events from this new launch and do not explain this trial's code 26.",
+  "qualification": "This single-service check does not establish that stage.dat is the missing six model keys' producer. Previously inspected authenticated Android stage.dat records, including playable later Android state, contained empty DATA:. The installed iOS archive remains not playable; no claim of working offline gameplay or recovered original iOS progression follows.",
+  "privacy": "Only the stage service category, numeric Keychain status and fresh-process numeric request/failure outcomes are recorded. No original password, identity, account, save bytes, token, raw syslog, unrelated applications, or copied crash report filenames are published."
+}

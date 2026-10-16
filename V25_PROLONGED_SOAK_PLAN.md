@@ -1,5 +1,7 @@
 # V25 Compact Cumulative Public-Release Qualification
 
+> Historical V25 protocol. Current V42 functional results and their empirical evidence limits are recorded in [docs/TESTING.md](docs/TESTING.md). The current unlimited-hearts patch prevents the visible counter from decreasing, so this historical plan's displayed-zero-life condition is not applicable to V42. Do not infer this plan's action counts or checkpoint artifacts from the later manual reports.
+
 ## Purpose and cumulative evidence
 
 This is a focused manual qualification of the exact V25 candidate, not a repetition of accepted matrices. The release decision combines this run with the existing exact-candidate evidence:

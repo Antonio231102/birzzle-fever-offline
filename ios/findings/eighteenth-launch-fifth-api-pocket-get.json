@@ -1,0 +1,16 @@
+{
+  "session": "ios/captures/20260927T054148Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-fifth-api-guarded.ipa",
+  "operator_observation": "The same Failed to connect to the game server. [code:26] error appeared. No menu or playable game was reported.",
+  "game_process": {
+    "numeric_stage_sequence": ["request:1", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:2", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:3", "request:101", "request:201", "request:231", "request:211", "request:221", "request:301", "request:4", "request:101", "request:201", "request:231", "request:301", "request:502", "Failed:5"],
+    "fifth_api": "pocket.get",
+    "classification_basis": "Only queued request ID5 was compared byte-for-byte against the thirty statically verified original iOS API constants; numeric marker 502 maps to exact pocket.get. No raw API or request parameters were logged.",
+    "authenticated_android_history": "The original Android archive contains a POCKET.GET response with historical numeric commandid 7, not iOS queued ID5. An exact command-specific iOS response must adapt the queue ID and any platform-specific fields without altering historical pocket or identity state.",
+    "new_app_crash_incidents": 0,
+    "copied_app_crash_reports_outside_trial": 3,
+    "crash_report_copy_succeeded": true
+  },
+  "privacy": "No raw syslog, copied crash filenames, identifiers, response values or tokens published."
+}

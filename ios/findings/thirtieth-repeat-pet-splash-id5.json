@@ -1,0 +1,17 @@
+{
+  "session": "ios/captures/20260927T183606Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-repeat-pet-selected-probe.ipa",
+  "operator_observation": "Code 26 appeared on the splash screen, followed by ‘Failed to update the game information. Check your network connection status and try again.’ Suri selection and gameplay were not reached. Do not repeat this unchanged failed build.",
+  "fresh_game_process": {
+    "accepted_original_callbacks": [1, 2, 3, 4],
+    "exact_id5_api": "pocket.get",
+    "id5_api_marker": 502,
+    "unhandled_failed_id": 5,
+    "matching_game_crash_reports": 0,
+    "new_id10_model_probe_reached": false
+  },
+  "read_only_current_game_state": "Installation-proxy-scoped AFC2 read the current game's exact 972-byte checksummed native save. Its checksum and version are valid, the first pet is owned at original ability level 1, and an earlier GameStart was recorded. The two numeric model records predate this splash-only trial; they do not establish a new selection result. Compared with a snapshot taken before the preceding GameStart trial, only heart, playcount, next replay slot, and the digest changed; this is not evidence that this splash trial mutated the state.",
+  "local_diagnostic_limit": "The same latest compiled iOS ARM ID5 backend enqueued an ID5 response under emulation with the current checksummed device state at image slides 0, 0xba000, 0xef000 and 0x1a0000, without reading irrelevant mutation parameters. This does not reproduce the physical ID5 failure or prove whether the original request reached the native backend or its failure bridge.",
+  "next_diagnostic": "A separately built, not-yet-installed IPA records only bounded numeric ID5 routing phases into this game's Documents, distinguishing no render, bounded response, queued response and original failure-bridge lookup. A fresh operator-controlled physical trial is required; no gameplay fix is claimed.",
+  "privacy": "No raw app log, request, response, save bytes, wallet value, identifier, account, transaction, sandbox path or unrelated app contents were published."
+}

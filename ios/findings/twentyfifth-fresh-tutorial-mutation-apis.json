@@ -1,0 +1,18 @@
+{
+  "session": "ios/captures/20260927T063642Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-stateful-early-api-trace.ipa",
+  "on_device_data": "Operator-approved game-only uninstall/reinstall cleared app container before this launch; original clean iOS IPA, original full app backup and Android archive were not modified. Isolated iOS Keychain items may survive uninstall.",
+  "operator_observation": "On the fresh game container, code 26 appeared after selecting Suri, then code 26 appeared again when starting a game. Trying to start a game once more gave code 13.",
+  "new_launch_game_process": {
+    "original_callback_ids_accepted": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "new_exact_allowlisted_api_names_by_queue_id": {
+      "10": "inventory.buy",
+      "11": "pocket.set",
+      "12": "pocket.set"
+    },
+    "unhandled_failure_ids": [10, 11, 12],
+    "evidence_limit": "This capture proves which original iOS API was queued at each ID and which requests lacked local replies. It does not prove a one-to-one mapping between any single Failed marker and either popup because requests can overlap. No successful pet purchase, updated wallet, saved pet selection or level entry was observed."
+  },
+  "crash_copy": "Incomplete: idevicecrashreport exited nonzero with a one-line no-device-found diagnostic after syslog capture. No new copied app crash report claim is made; the operator reported UI errors rather than a process crash.",
+  "privacy": "Only process-scoped numeric allowlist and failure IDs are recorded. No account ID, token, request data, USB identifier or crash filename published."
+}

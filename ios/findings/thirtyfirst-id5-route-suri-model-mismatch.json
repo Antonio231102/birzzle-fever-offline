@@ -1,0 +1,28 @@
+{
+  "session": "ios/captures/20260927T190802Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-id5-route-probe.ipa",
+  "operator_observation": "Code 26 after selecting Suri; code 26 again on attempting game start, then the game crashed. No playable level was observed. Do not relaunch this unchanged crashing build.",
+  "fresh_game_process": {
+    "stale_prior_pid_excluded": true,
+    "accepted_original_callbacks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "exact_id10_api": "inventory.buy",
+    "exact_id11_api": "pocket.set",
+    "unhandled_failed_markers": [],
+    "id5_private_numeric_route_phases": [1, 2, 4, 5, 6],
+    "id5_route_interpretation": "The dynamic pocket.get request entered the backend, rendered and bounded a reply, queued the frame, and the original failure bridge retrieved it. The original decoder and result callback also accepted ID5 on this run. This does not establish why the immediately preceding, different IPA failed physical ID5.",
+    "purchase_interpretation": "The exact inventory.buy ID10 and pocket.set ID11 reached original decoder, queued-ID, token and result callbacks with no Failed marker. The earlier repeat-purchase backend rejection was addressed on this observed transaction path, but successful callbacks alone do not show original pet selection became valid."
+  },
+  "read_only_game_private_numeric_model_records": {
+    "new_id10_before_purchase": {"roster_count": 6, "selected_string_empty": false, "selected_model_found": false},
+    "new_id11_after_purchase": {"roster_count": 6, "selected_string_empty": false, "selected_model_found": false},
+    "interpretation": "A nonempty selected-model string matched none of six original game-model entries, both before and after a successful purchase callback. This rules out an empty selected name and a missing entire roster; the producer/value mismatch is not yet identified. No names were recorded."
+  },
+  "matching_new_crash": {
+    "reports": 1,
+    "exception": "EXC_BAD_ACCESS (SIGSEGV); KERN_INVALID_ADDRESS at 0x00000018",
+    "original_game_arm_vm": "0x0e387a",
+    "interpretation": "The same original selected-model null dereference occurred at game start, at a distinct ASLR slide; the new native backend segment is not the crashed frame."
+  },
+  "read_only_current_game_state": "Only the game's own Documents was inspected via installation-proxy-scoped AFC2. Native state remains checksum/version valid; pet slot 0 is owned at original ability 1, and a GameStart event exists. Original source archives and full iPad backup remain unchanged.",
+  "privacy": "Only game-process numeric checkpoints, fixed API literals, roster count/match/empty booleans, sanitized crash category/VM offset and reported screen text are published. No raw logs, selected name, account, wallet, purchase transaction, iPad identifier, sandbox path or unrelated app file is published."
+}

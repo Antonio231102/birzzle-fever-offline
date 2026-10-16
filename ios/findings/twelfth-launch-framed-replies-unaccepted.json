@@ -1,0 +1,17 @@
+{
+  "session": "ios/captures/20260927T032803Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_archive": "ios/BirzzleFever-HB-offline-state-framed.ipa",
+  "operator_observation": "The same 'Failed to connect to network. Please check network status.' alert after a few seconds of loading; no menu or gameplay observed.",
+  "game_process": {
+    "selected_historical_startup_reply_request_id": 1,
+    "selected_login_reply_observed": false,
+    "network_initialization_errors_in_new_process": 2,
+    "distinct_new_crash_incidents": 0,
+    "crash_copy_successful": true,
+    "copied_reports_include_prior_incidents": true
+  },
+  "conclusion": "Restoring the native receiver's stripped single-byte frame did not clear startup. The selection marker occurs before iOS decryption, JSON parsing and dispatch; neither acceptance nor rejection stage is observed. Need locate the first failed stage or incompatible response contract, not repeat the reported alert.",
+  "installed_archive": "ios/BirzzleFever-HB-offline-state-framed.ipa",
+  "privacy": "Raw syslog and copied crashes are ignored and private; no token, UID, member identifier, response value or report filename is published."
+}

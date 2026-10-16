@@ -1,0 +1,17 @@
+{
+  "session": "ios/captures/20260927T063012Z/",
+  "installed_archive": "ios/BirzzleFever-HB-offline-stateful-early-api-trace.ipa",
+  "operator_observation": "After dismissing the error popup, tutorial taps did not advance the flow; the game was softlocked.",
+  "new_launch_game_process": {
+    "observed_queued_requests": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "observed_exact_apis_for_3_to_9": ["inventory.list", "custom.get", "pocket.get", "global.get.name", "pocket.get", "gift.get.count", "score.ranking"],
+    "original_result_callbacks_accepted": 9,
+    "later_request_ids_from_tutorial_taps": [],
+    "unhandled_failure_ids": [],
+    "interpretation": "No API request beyond ID9 was captured despite the operator's tutorial interaction. Do not claim request 10 or 11 caused this softlock. The menu alert or post-reply UI/save transition is unresolved, and UI acceptance of all nine replies was not established merely by parser callback markers."
+  },
+  "new_app_crash_reports_in_trial": 0,
+  "copied_app_crash_reports_outside_trial": 3,
+  "device_data": "Unchanged. Operator has approved optional on-device game-data wipe without backup, but no wipe has yet been performed.",
+  "privacy": "Only process-filtered bounded numeric markers and original API allowlist names; no raw syslog, token, account identifier or crash filenames."
+}

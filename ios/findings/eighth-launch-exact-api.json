@@ -1,0 +1,32 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "Birzzle Fever iOS 1.0.4 with exact lower-case API allowlist, hostname, request-ID and NSError hooks",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260927T020033Z",
+  "started_utc": "2026-09-27T02:00:33.912533+00:00",
+  "ended_utc": "2026-09-27T02:05:07.967021+00:00",
+  "operator_observation": "After a few seconds of loading animation, the same dialog appeared: Failed to connect to network. Please check network status.",
+  "in_place_upgrade_completed_before_capture": true,
+  "game_process_observations": {
+    "request_id": 1,
+    "first_request_api_log": "request:1",
+    "api_matches_bounded_uppercase_or_29_lowercase_literals": false,
+    "effective_hostname": "gs-birzzlefeverhb.enfeelcdn.com",
+    "nserror_domain": "NSURLErrorDomain",
+    "nserror_code": -1003,
+    "connector_failure_request_id": 1,
+    "successful_server_reply_observed": false
+  },
+  "crash_copy": {
+    "return_code": 0,
+    "copied_crash_report_count": 0
+  },
+  "static_analysis_after_capture": {
+    "startup_native_callsite": "0x180b4e calls 0x205d74 with API literal server.init.2 at 0x38c658",
+    "first_request_api_inference": "server.init.2 is a strong candidate for first startup request, but the device trace redacted it and did not prove request-ID-to-caller correspondence. The literal contains a digit, so the installed diagnostic's old uppercase-dotted filter and 29-name lowercase allowlist both reject it.",
+    "cross_platform_contract": "The original read-only Android game library also contains the exact server.init.2 literal; its compiled client version differs from the iOS client's version. Historical Android SERVER.INIT cache has a JSON envelope but its requestversion differs from the iOS compiled client version.",
+    "ios_save_storage": "The iOS native save writer invokes SFHFKeychainUtils storeUsername:andPassword:forServiceName:updateExisting:error: with fixed BirzzleFeverUser account and a dynamic service name; the native reader invokes getPasswordForUsername:andServiceName:error:. Thus an app-container archive is not a Keychain save export. Cross-platform encrypted-file key agreement alone does not establish an iOS restore path."
+  },
+  "next_action": "Map the iOS Keychain service-key derivation and native offline response dispatch. A distinct uninstalled local diagnostic now includes exact server.init.2 matching; another manual iPad install/launch requires a new explicit readiness gate. Do not replay the reported network error solely to reconfirm it.",
+  "privacy": "No token, member identifier, UDID, account values, full URL, request parameters, or crash filename appears in this finding. Raw logs stay ignored under ios/captures; Android was inspected read-only."
+}

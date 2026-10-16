@@ -1,0 +1,21 @@
+{
+  "session": "ios/captures/20260927T193406Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-model-key-occupancy.ipa",
+  "operator_observation": "Code 26 at splash followed by ‘Failed to update the game information. Check your network connection status and try again.’ Suri selection was not reached. Do not repeat this unchanged failed build.",
+  "fresh_game_process": {
+    "accepted_original_callbacks": [1, 2, 3, 4],
+    "id5_exact_api_marker": 502,
+    "unhandled_failed_id": 5,
+    "new_process_matched_crashes": 0
+  },
+  "game_private_numeric_id5_route": {
+    "previous_successful_trial_phases": [1, 2, 4, 5, 6],
+    "this_trial_only_phases": [1, 3, 7],
+    "interpretation": "The iOS C backend request hook entered for ID5, but bf_read_response returned null before the ID5 frame was bounded or queued. The original failure bridge correctly found no queued ID5 reply. The frame decoder and Suri purchase were never exercised. Earlier ID2–4 success may come from a static offline response and does not establish that this process loaded the game-private mutable state. This locates the failure before the network failure bridge, not in Suri selection or the previously incomplete game-start operation."
+  },
+  "game_private_model_probe": "No new ID10/11 roster records exist for this trial; the prior two six-entry selected-key mismatches are from the earlier trial. Current actual six-entry key occupancy remains unmeasured.",
+  "read_only_current_game_state": "Current installed game's exact 972-byte native state was read only in volatile memory from its scoped sandbox and independently checked for version and MD5. It remains valid with owned original pet 0; the source archives and full iPad backup were untouched. AFC2/root readability alone does not prove the app process could open its file at request time.",
+  "exact_physical_save_local_replay": "The byte-identical native ARM renderer from the actually failed IPA was executed against the exact currently installed, independently checksum-validated game-only save and authenticated historical pocket.get JSON, using real MD5 and AES-ECB. It generated a frame accepted by the original digest/decryption/JSON contract at slides 0, 0xb2000 and 0xef000. Thus the persisted state values and template are not a deterministic cause when state loading, memory allocation and crypto are available. This emulation does not prove the iPad app process successfully opened its state file or allocated memory during the failed launch.",
+  "next_action": "A distinct, not-yet-installed stage-coded IPA now records only one bounded numeric early-return reason from native pocket.get rendering. Exact linked ARM smoke distinguished denied file access (14), unexpected initialization (11), absent malloc (20), missing template (23), absent command field (25), absent wallet key (27); the archived backend rendered normally with the current physical state and real AES. The next gated trial can isolate a real runtime cause, not replay the unchanged failed image or speculate about previous pet/game-start operations.",
+  "privacy": "No raw syslog, user/account string, request, response, wallet value, transaction, sandbox path or unrelated app contents are published."
+}

@@ -2,30 +2,34 @@
 
 Source code, patch research, save-format analysis, and validation records for making **Birzzle Fever 1.1.2** usable after its original servers were retired.
 
-The current development milestone is **V25**. On the tested 32-bit ARM Galaxy S4 running Android 4.4.2, V25 starts without a network interface, initializes from a sanitized local seed, preserves progression, reconstructs the personal leaderboard, permits play at zero displayed lives, and requires neither Xposed nor Titanium Backup for a fresh installation.
+The newest signed **technical checkpoint is V43**, with revised Rudy/Eve normal goals. The operator-requested **fresh installation without preserving saves** is now complete on the Galaxy S4 and S20 Plus; both installed APKs match the FruitSpy-signed checkpoint. Startup of the new normal-goal APK has not yet been manually tested on either device. **V42 remains the last two-device-qualified release milestone**, including the binary-safe save-token fix. The operator reports that all eight V42 functional release checks passed on the Galaxy S4 running Android 4.4.2 and the Galaxy S20 Plus running Android 13. The unlimited-hearts patch prevents the visible lives counter from decreasing.
 
 ## Release status
 
-The GitHub repository is intentionally private during reproducibility, legal, and second-device review. Private visibility does not relax the tracked-file policy: complete extracted packages, bulk assets, device captures, and signing material remain excluded.
+The GitHub repository is intentionally private during reproducibility and legal review. Private visibility does not relax the tracked-file policy: complete extracted packages, bulk assets, device captures, and private signing material remain excluded.
 
-V25 passed the project's single-device functional qualification:
+Newest technical checkpoint: `checkpoints/2026-09-26-v43-normal-goals-fruitspy-fdc05ae28a20/`; signed APK SHA-256 `fdc05ae28a20dec263871270d7d4ffe2c0ad8ccc97a6f8bf83ace0a83628b01b`. The release certificate matches V42, but normal-goal V43 device qualification and independent public-distribution gates remain open. This checkpoint does not replace the frozen V42 qualified base.
+
+V42 passed the following checks on both devices by operator report:
 
 - fresh APK-only initialization;
-- offline and connected multi-session play;
-- ten mature cold launches;
-- nine first-read response-index fault cases;
-- repeated power-up cancellation, mid-game quit, and completed-game return paths;
-- response-pool continuity and byte-preservation checks;
-- personal-score leaderboard refreshes without the historical crash or softlock.
+- fresh-player progression;
+- offline gameplay session;
+- connected gameplay session;
+- rewards and mutations;
+- leaderboard;
+- unlimited-life behavior;
+- mature-save cold starts.
 
-This is **not yet a public binary release**. Remaining gates:
+No progress loss, crashes, freezes, or softlocks were observed. These runs were deliberately empirical: no logs or save backups were collected. Zero lives are never displayed under the current patch, so starts from a displayed zero are not an applicable test. Potential undiscovered issues will be reviewed as users report them.
+
+A release-signed V42 APK has been prepared locally. This does not by itself complete the independent distribution and build gates:
 
 1. decide whether distribution may include a modified APK or must use a user-supplied-original patcher;
-2. complete a reproducible V25 build from a user-supplied original APK;
-3. sign the release with a dedicated key;
-4. test another supported ARMv7 device before claiming broad compatibility.
+2. complete a reproducible current build from a user-supplied original APK;
+3. complete the public-content/history audit and applicable release-material checks.
 
-See [V25_PROJECT_STATUS.md](V25_PROJECT_STATUS.md) for exact evidence and limitations.
+See [docs/TESTING.md](docs/TESTING.md) for the accepted V42 manual results and evidence limits, and [RELEASE_SIGNING_KEY.md](RELEASE_SIGNING_KEY.md) for the signed artifact and upgrade constraints. [V25_PROJECT_STATUS.md](V25_PROJECT_STATUS.md) is historical evidence, not the current release status.
 
 ## Repository contents
 
@@ -37,7 +41,7 @@ See [V25_PROJECT_STATUS.md](V25_PROJECT_STATUS.md) for exact evidence and limita
 - Device harnesses: targeted cold-launch, corruption, interrupted-write, and soak-checkpoint automation.
 - `checkpoints/`: Markdown records for the principal V4, V7, and V11 device checkpoints. Their binary payloads remain local.
 - `docs/`: architecture, building, testing, publication policy, and installation guidance.
-- [CHANGELOG.md](CHANGELOG.md): accepted, investigative, and rejected milestones from V1 through V25.
+- [CHANGELOG.md](CHANGELOG.md): accepted, investigative, and rejected milestones through V42.
 
 ## Deliberately excluded
 This repository does not contain:

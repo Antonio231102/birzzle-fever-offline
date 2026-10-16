@@ -1,0 +1,15 @@
+{
+  "session": "ios/captures/20260927T053301Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-custom-get-guarded.ipa",
+  "operator_observation": "The same Failed to connect to the game server. [code:26] error appeared. No playable game was reported.",
+  "game_process": {
+    "numeric_stage_sequence": ["request:1", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:2", "request:101", "request:201", "request:231", "request:210", "request:221", "request:301", "request:3", "request:101", "request:201", "request:231", "request:211", "request:221", "request:301", "request:4", "request:101", "request:201", "request:231", "request:301", "Failed:5"],
+    "interpretation": "The exact custom.get branch selected a response for queued ID4. Original iOS decryption, JSON parsing, ID check and result callback succeeded. There was no scoped token marker on custom.get: it used the unchanged original iOS comparison. The next failed request has queued ID5, not a proven symbolic API. The authenticated Android cache has no historical reply with numeric ID5; do not fabricate one by relabeling another command's data.",
+    "captured_app_related_lines": 55,
+    "new_app_crash_incidents": 0,
+    "copied_app_crash_reports_outside_trial": 3,
+    "crash_report_copy_succeeded": true
+  },
+  "privacy": "No raw syslog, copied crash filenames, identifiers, response fields or tokens published."
+}

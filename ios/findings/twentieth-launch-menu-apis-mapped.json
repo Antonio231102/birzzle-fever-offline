@@ -1,0 +1,20 @@
+{
+  "session": "ios/captures/20260927T055850Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-menu-api-trace-all.ipa",
+  "operator_observation": "The main menu appeared, then Failed to connect to the game server. [code:26] appeared before the operator could play.",
+  "new_launch_game_process": {
+    "prior_six_selected_requests_reached_original_callbacks": true,
+    "numeric_menu_request_markers": [701, 813, 917],
+    "exact_allowlisted_api_names": ["pocket.get", "gift.get.count", "score.ranking"],
+    "unhandled_failed_ids": [7, 8, 9],
+    "classification_basis": "Each queued request was matched byte-for-byte against thirty verified original iOS API constants and logged as 100*request_id + zero-based allowlist index; no raw request or account fields were logged.",
+    "concurrent_failures": "All three menu calls failed on the original network path and may overlap; do not assume a single causal ID from the shared visual alert."
+  },
+  "earlier_game_process": "Two Failed markers with IDs10 and11 in the same capture belonged to a different earlier game PID before the new launch and are excluded from the new-launch diagnosis.",
+  "authenticated_android_fixture_constraints": "POCKET.GET, GIFT.GET.COUNT and SCORE.RANKING have matching historical numeric IDs 7,8,9 and the login-rotated access token. Archived ranking has two equal-score entries for the same identity; the proven V25 Android ranking template uses a distinct -1 first-slot score sentinel to avoid the duplicate/equal-entry hazard. Replay ranking only after guarding this invariant.",
+  "new_app_crash_incidents": 0,
+  "copied_app_crash_reports_outside_trial": 3,
+  "crash_report_copy_succeeded": true,
+  "privacy": "No raw syslog, actual PIDs, crash filenames, account identity, token, or cached response values published."
+}

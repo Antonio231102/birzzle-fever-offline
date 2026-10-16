@@ -1,0 +1,38 @@
+{
+  "target": "com.halfbrick.birzzlefever",
+  "build": "Birzzle Fever iOS 1.0.4 with PC-relative request-ID tracer",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "capture_directory": "ios/captures/20260926T052441Z",
+  "started_utc": "2026-09-26T05:24:41.713572+00:00",
+  "ended_utc": "2026-09-26T05:27:04.541429+00:00",
+  "operator_observation": "Loading animation appeared for a few seconds; then the splash showed: Failed to connect to network. Please check network status. Gameplay was not reached.",
+  "installed_executable_matched_repaired_artifact_before_launch": true,
+  "observed_connector_failure": {
+    "request_id": 1,
+    "app_focused_log_line": 27,
+    "source": "PC-relative diagnostic in ConnectorProxy requestFail:handle:message:"
+  },
+  "instrumented_numeric_commandid_serializer_entries": 0,
+  "network_initialization_error_count": 2,
+  "network_initialization_error_lines": [22, 24],
+  "game_specific_failing_url_or_http_status_logged": false,
+  "new_native_crash_report_copied": false,
+  "previous_crash_report_recopied_identical": true,
+  "static_request_construction": {
+    "image_address": "0x1d5e70",
+    "observed_control_flow": "Creates ConnectorProxy with an integer request ID, initializes RankingCore with the proxy as handle and delegate plus a server string, then calls RankingCore api:paramWithString:.",
+    "limit": "The request ID 1 observed at failure does not identify the server URL or symbolic service command."
+  },
+  "static_failure_delegate": {
+    "class": "RankingCore",
+    "selector": "connection:didFailWithError:",
+    "image_address": "0x1d56c8",
+    "calls": "ConnectorProxy requestFail:handle:message:",
+    "observed_control_flow": "Cancels the NSURLConnection, retrieves NSError.localizedDescription, then forwards the failure to ConnectorProxy. The NSError domain and numeric code were not recorded.",
+    "interpretation": "The observed connector-failure event is consistent with a transport delegate failure, not a parsed success response from the game server."
+  },
+  "interpretation_limit": "The iOS failure callback ran for request ID 1, but no event was captured at the one instrumented numeric commandid serialization callsite. This does not prove that no network request was attempted or identify the symbolic command, underlying NSError domain/code, requested endpoint, or response contract.",
+  "static_dialog_keys_consistent_with_operator_text": ["SERVER_COMMUNICATION_FAIL_EXIT", "CHECK_NETWORK_STATUS"],
+  "next_action": "Record only the numeric NSError.code at RankingCore connection:didFailWithError: and correlate it with request ID 1 before designing a format-correct offline fallback.",
+  "privacy": "Raw logs, old crash report and all game archives remain private under ignored ios/captures; no account identifiers or save contents are reproduced. Android was not used."
+}

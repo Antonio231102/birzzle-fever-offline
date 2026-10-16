@@ -1,0 +1,24 @@
+{
+  "session": "ios/captures/20260927T062637Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-stateful-early-api-trace.ipa",
+  "operator_observation": "The main menu was reached correctly again, but code 26 appeared shortly afterward.",
+  "new_launch_game_process": {
+    "exact_queued_api_names": {
+      "3": "inventory.list",
+      "4": "custom.get",
+      "5": "pocket.get",
+      "6": "global.get.name",
+      "7": "pocket.get",
+      "8": "gift.get.count",
+      "9": "score.ranking"
+    },
+    "accepted_original_result_callback_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "unhandled_failure_ids_during_capture": [],
+    "request_ids_10_and_11_observed_during_capture": false,
+    "interpretation": "Nine exact replies passed original decrypt/JSON/queued ID/result callbacks. The visible code 26 has no captured failed-request ID in this short trial. The preceding trial's Failed:5 was not proof of a changed API or corrupted save: the current exact trace identified pocket.get at ID5 and accepted it. Do not silently treat callback-stage success as full gameplay or prove that this alert came from a new server request."
+  },
+  "copied_app_crash_reports_outside_trial": 3,
+  "new_app_crash_reports_in_trial": 0,
+  "device_data": "Not wiped; original app and Android archives untouched.",
+  "privacy": "Process-scoped fixed allowlist API labels only; no account identifiers, raw syslog, token, request bodies or copied crash filenames."
+}

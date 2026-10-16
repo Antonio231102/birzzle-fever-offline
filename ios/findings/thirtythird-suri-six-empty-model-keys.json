@@ -1,0 +1,31 @@
+{
+  "session": "ios/captures/20260927T195944Z/",
+  "tested_and_installed_archive": "ios/BirzzleFever-HB-offline-id5-read-stage.ipa",
+  "operator_observation": "Selecting Suri once produced code 26. As instructed, game start was not attempted. No playable level or crash occurred.",
+  "fresh_game_process": {
+    "stale_other_pid_excluded": true,
+    "accepted_original_callbacks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "id10_exact_api": "inventory.buy",
+    "id10_original_result_callback_reached": true,
+    "id11_pocket_set_called_during_this_trial": false,
+    "unhandled_failed_markers": [],
+    "matching_new_crash_reports": 0
+  },
+  "game_private_numeric_id5_route": {
+    "this_trial_phases": [1, 2, 4, 5, 6],
+    "read_failure_stage": 0,
+    "meaning": "The native pocket.get rendered, bounded and queued a reply; the original failure bridge retrieved it. The previous distinct archive's splash-only bf_read_response-null failure did not recur, so there is no new physical reason-code for that intermittent issue."
+  },
+  "new_game_private_model_record_at_id10": {
+    "roster_entries": 6,
+    "selected_key_empty": false,
+    "selected_model_matched": false,
+    "roster_entries_with_nonempty_selection_key": 0,
+    "roster_entries_without_terminator_within_original_key_capacity": 0,
+    "meaning": "All six entries in the original indexed game-model roster had an empty key at the exact +0x328 field compared by the original selected-model lookup. The original selected key was nonempty. The roster exists but none can match; a successful purchase result alone cannot populate these missing keys. No key bytes were logged or persisted."
+  },
+  "read_only_current_game_state": "Native game-only BFState size/version/MD5 remain valid. The original pet 0 is owned at ability level 1; original backups are unmodified.",
+  "original_producer_and_historical_stage_evidence": "Static original iOS ARM VM 0xe4208 clears/formats the 100-byte model+0x328 key; its sole direct call is VM 0xdf4b8 in original deserializer VM 0xdf190 (callers 0xdfaee and 0x1106c6). The clean singleton initializes its selected key to a one-character numeric first-stage slot. The original 2016 Android stage.dat is MD5-authenticated but its sole malformed line is exactly empty DATA:; historical POCKET.LOGIN.stage is [], while the historical profile indicates pre-first-stage progress. Independently captured Android offline working/level8 snapshots also retain an authenticated empty DATA: stage.dat, so a nonempty Android stage.dat is not prerequisite for Android gameplay and cannot be the iOS model-key source. The preserved iOS app-container backup and current game Documents have no literal stage.dat. The original iOS first-run model-key materialization trigger remains unproved; do not transplant invented stage history or patch the lookup.",
+  "next_action": "Trace the native first-run stage creation/serialization path associated with original model deserializer VM 0xdf190, using only the clean iOS binary and authenticated empty-history constraints. Correct the upstream missing model-key producer with original factory-generated defaults, not a dereference guard, selected-key copy, error-popup suppression or fake historical progress. No further unchanged-IPAs/diagnostic-only manual trials.",
+  "privacy": "Only numeric original callback markers, roster count and empty/match booleans, checksum validity and operator screen text are recorded; no raw logs, account, wallet, transaction, selected key, model key, iPad identifier or unrelated app files are published."
+}

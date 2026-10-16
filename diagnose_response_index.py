@@ -14,6 +14,8 @@ from pathlib import Path
 
 from Crypto.Cipher import AES
 
+from analyze_birzzle_save import parse_native_fields
+
 
 UID = "3c8bb7308c3fcb60c439224bd595c794d8f31501"
 INDEX_NAME = hashlib.md5((UID + "REQUESTPOOLINDEX").encode()).hexdigest()
@@ -72,18 +74,7 @@ def diagnose_bytes(raw: bytes, mtime: int | None = None):
     if digest.lower() != expected_digest:
         result["failure_reason"] = "ENVELOPE_MD5_MISMATCH"
         return result
-    fields = {}
-    malformed = []
-    duplicates = []
-    for line in body.split(b"\n"):
-        if b":" not in line:
-            malformed.append(line.decode("utf-8", "replace"))
-            continue
-        key, value = line.split(b":", 1)
-        name = key.decode("ascii", "replace")
-        if name in fields:
-            duplicates.append(name)
-        fields[name] = value
+    fields, malformed, duplicates = parse_native_fields(body)
     result["field_names"] = list(fields)
     result["malformed_lines"] = malformed
     result["duplicate_fields"] = duplicates

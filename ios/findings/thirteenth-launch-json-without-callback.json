@@ -1,0 +1,17 @@
+{
+  "session": "ios/captures/20260927T033832Z/",
+  "device": "iPad2,1 / iOS 6.1.3",
+  "tested_archive": "ios/BirzzleFever-HB-offline-state-stages.ipa",
+  "operator_observation": "The same 'Failed to connect to network. Please check network status.' alert after several seconds of loading; no gameplay reached.",
+  "game_process": {
+    "numeric_stage_sequence": [1, 101, 201],
+    "interpretation": "Historical request ID1 reply selected; original runDecrypt: returned non-nil; original JSON object parser returned non-nil; original matching result callback was not invoked (no marker 301).",
+    "login_reply_selection_observed": false,
+    "distinct_new_native_crashes": 0,
+    "crash_copy_successful": true,
+    "copied_reports_include_prior_incidents": true
+  },
+  "native_next_boundary": "Between valid JSON object and result callback, original parser compares JSON commandid with request ID, then compares JSON accesstoken to the per-request queued access token. No token or response value was logged. The actual rejected check remains unmeasured.",
+  "installed_archive": "ios/BirzzleFever-HB-offline-state-stages.ipa",
+  "privacy": "Raw logs and copied reports remain ignored/private; no archived JSON, token, UID, member identifier, request payload or crash filename is published."
+}

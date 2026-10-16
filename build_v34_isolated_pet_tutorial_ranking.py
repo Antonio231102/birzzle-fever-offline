@@ -1,3 +1,4 @@
+import argparse
 import hashlib
 import shutil
 import struct
@@ -131,8 +132,12 @@ def isolated_retryable_dispatch_code(address: int) -> bytes:
     return code
 
 
+_parser = argparse.ArgumentParser(description="Apply the V34 isolated pet ranking patch.")
+_parser.add_argument("--native-only", action="store_true", help="Build only the native library; do not read, package, or sign an APK.")
+_args = _parser.parse_args()
+
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-if sha256(SOURCE_APK) != EXPECTED_SOURCE_APK_SHA256:
+if not _args.native_only and sha256(SOURCE_APK) != EXPECTED_SOURCE_APK_SHA256:
     raise SystemExit("unexpected V33 source APK")
 if sha256(SOURCE_LIBRARY) != EXPECTED_SOURCE_LIBRARY_SHA256:
     raise SystemExit("unexpected V33 source library")
@@ -162,6 +167,9 @@ for offset, expected, replacement in patches:
     library[offset : offset + len(expected)] = replacement
     print(f"{offset:#x}: {expected.hex()} -> {replacement.hex()}")
 OUTPUT_LIBRARY.write_bytes(library)
+if _args.native_only:
+    print(f"native_sha256={hashlib.sha256(library).hexdigest()}")
+    raise SystemExit(0)
 
 with zipfile.ZipFile(SOURCE_APK, "r") as source:
     if sha256_bytes(source.read("lib/armeabi/libbirzzle.so")) != EXPECTED_SOURCE_LIBRARY_SHA256:

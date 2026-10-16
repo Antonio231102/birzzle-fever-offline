@@ -1,3 +1,4 @@
+import argparse
 import hashlib
 import shutil
 import struct
@@ -20,7 +21,7 @@ OUTPUT_LIBRARY = OUTPUT_DIR / "libef2d-v26-modern-syscalls.so"
 UNSIGNED_APK = OUTPUT_DIR / "BirzzleFever-1.1.2-v26-modern-syscalls-unsigned.apk"
 SIGNED_APK = OUTPUT_DIR / "BirzzleFever-1.1.2-v26-modern-syscalls.apk"
 KEYSTORE = Path("xposed-birzzle-id-spoof/build/debug.keystore")
-LLVM_BIN = Path("tools/llvm-mingw-20260826-ucrt-x86_64/bin")
+LLVM_BIN = Path(__file__).resolve().parent / "tools/llvm-mingw-20260826-ucrt-x86_64/bin"
 CLANG = str(LLVM_BIN / "clang.exe")
 LD_LLD = str(LLVM_BIN / "ld.lld.exe")
 LLVM_OBJCOPY = str(LLVM_BIN / "llvm-objcopy.exe")
@@ -107,8 +108,12 @@ def helper_symbols() -> dict[str, int]:
         }
 
 
+_parser = argparse.ArgumentParser(description="Apply the V26 syscall compatibility patch.")
+_parser.add_argument("--native-only", action="store_true", help="Build only the native library; do not read, package, or sign an APK.")
+_args = _parser.parse_args()
+
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-if sha256(SOURCE_APK) != EXPECTED_APK_SHA256:
+if not _args.native_only and sha256(SOURCE_APK) != EXPECTED_APK_SHA256:
     raise SystemExit("unexpected V25 APK SHA-256")
 if sha256(SOURCE_LIBRARY) != EXPECTED_LIBRARY_SHA256:
     raise SystemExit("unexpected V25 libef2d SHA-256")
@@ -184,6 +189,9 @@ library[MTIME_PATCH_OFFSET:MTIME_PATCH_OFFSET + 4] = thumb2_jump(
 print(f"path-independent mtime guard: {MTIME_PATCH_OFFSET:#x} -> "
       f"{symbols['compat_mtime_guard']:#x}")
 OUTPUT_LIBRARY.write_bytes(library)
+if _args.native_only:
+    print(f"native_sha256={hashlib.sha256(library).hexdigest()}")
+    raise SystemExit(0)
 
 with zipfile.ZipFile(SOURCE_APK, "r") as source:
     if sha256_bytes(source.read("lib/armeabi/libbirzzle.so")) != EXPECTED_BIRZZLE_SHA256:
